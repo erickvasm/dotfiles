@@ -118,6 +118,8 @@ alias path='echo $PATH | tr : \\n'
 alias ls="exa --icons"
 alias ll="exa -a --icons"
 
+export PATH="$HOME/.local/bin/":$PATH
+
 eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
