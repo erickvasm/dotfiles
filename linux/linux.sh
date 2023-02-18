@@ -45,6 +45,9 @@ done
 echo
 
 
+echo "Some Library"
+sudo apt install diff-so-fancy
+
 echo "Installing chrome"
 cd ~/Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads
@@ -64,8 +67,16 @@ source ~/.bashrc
 nvm install v18.13.0
 
 echo "Installing neovim"
-gem install neovim
-npm install -g neovim
+sudo add-apt-repository universe
+sudo apt install libfuse2
+
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage
+
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+nvim
 echo
 
 echo "Atom-dark theme"
