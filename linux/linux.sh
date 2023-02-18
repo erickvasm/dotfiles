@@ -35,6 +35,7 @@ declare -a app=(
     'vlc'
     'starship'
     'gnome-extension-manager'
+    'diff-so-fancy'
 )
 
 echo "Installing snap apps"
@@ -44,9 +45,6 @@ for app in "${app[@]}"; do
 done
 echo
 
-
-echo "Some Library"
-sudo apt install diff-so-fancy
 
 echo "Installing chrome"
 cd ~/Downloads
