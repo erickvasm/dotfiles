@@ -36,6 +36,7 @@ declare -a app=(
     'starship'
     'gnome-extension-manager'
     'diff-so-fancy'
+    'bitwarden'
 )
 
 echo "Installing snap apps"
