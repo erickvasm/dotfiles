@@ -64,6 +64,22 @@ done
 
 echo 
 
+echo "Installing mac cleaner"
+curl -o ~/Downloads/AppCleaner.dmg "https://www.freemacsoft.net/downloads/AppCleaner_3.5.zip"
+echo
+
+echo "Installing speedTest"
+brew tap teamookla/speedtest
+brew update
+brew uninstall speedtest --force
+brew uninstall speedtest-cli --force
+brew install speedtest --force
+echo
+
+echo "Installing LunarVim"
+LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh)
+echo
+
 echo "Installing node"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash

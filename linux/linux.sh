@@ -17,6 +17,7 @@ declare -a apps=(
     'fzf'
     'exa'
     'gnome-tweaks'
+    'curl'
 )
 
 echo "Installing apt apps"
@@ -65,6 +66,10 @@ sudo snap install slack --classic
 sudo snap install --classic code
 sudo snap install intellij-idea-community --classic
 echo
+
+echo "Installing speedTest"
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+sudo apt-get install speedtest
 
 echo "Installing node"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
