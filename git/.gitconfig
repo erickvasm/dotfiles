@@ -1,0 +1,60 @@
+[color "diff"]
+	new = green italic
+	old = red strike
+	meta = blue black bold
+[color]
+	branch = always
+	diff = always
+	grep = always
+	interactive = always
+	status = always
+	ui = always
+[commit]
+	template = ~/.gitmessage.txt
+	verbose = true
+[core]
+	autocrlf = false
+	editor = /usr/bin/vim
+	eol = lf
+	excludesfile = ~/.gitignore_global
+	ignorecase = false
+[i18n]
+	logOutputEncoding = UTF-8
+[log]
+	showSignature = true
+[pull]
+	ff = only
+	rebase = true
+[sequence]
+	editor = /usr/bin/vi
+[user]
+	email = erickmurillo0807@gmail.com
+	name = Erick Vasquez
+	useConfigOnly = true
+[alias]
+	st = status -sb
+	br = branch
+	co = checkout
+	pr = pull --stat --rebase origin
+	pf = push --force origin
+	dt = diff-tree -p @{1}
+	lss = log --show-signature
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	unstage = reset HEAD --
+	last = log --show-signature -1 HEAD
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	who = shortlog -s --
+	whois = !sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\\n\" --author=\"Erick Vasquez\"' -
+	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+	where = describe --tags
+	wd = diff --word-diff
+	lol = log --oneline --decorate --graph
+	ap = add --patch
+	clear = reset --hard
+	changes = log --oneline --decorate --graph @{1}..
+	merges = log --oneline --merges
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

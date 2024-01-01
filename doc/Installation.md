@@ -1,0 +1,91 @@
+# Installation
+
+## MacOs computer setup
+* Log in iCloud and Sync all Keychain passwords
+* Update Mac 
+* Restore `~/.ssh` from iCloud
+* Execute the dotfiles installer
+* Login in Mail and sync all accounts
+* Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
+* Go to `Preferences/General` and enable font smoothing (if retina display)
+* Open safari and go to `Tabs` and set the tab layout to `Compact`
+* Create a pwa for chatGPT
+* Open Rectangle and import the configuration from `~/.dotfiles/mac/Rectangle`
+* Open JetBrains Toolbox
+  - Login
+  - Enable "generate shell scripts in ~/bin"
+  - Install IntelliJ
+* Open IntelliJ
+  - Import from JetBrains account
+  - Sync plugins
+* Open VsCode
+  - Sync settings
+  - Install settings sync extension
+* Open Slack
+  - Login 
+* Open iTerm2
+  - Select load preferences from URL and use ~/.dotfiles/mac/iTerm. On the next prompt select "No" to not save the changes
+  - Change the font and the theme
+* Restart
+
+With the script `macos.sh` have the default configuration for a new mac, but you can use the script to export your own configuration.
+
+```bash
+./mac-setup.sh export /Users/graifin/.dotfiles/os/mac/settings
+```
+
+## Remap Caps-Lock
+
+- Remapping your Caps Lock key to mecanic keyboard.
+  ![Remap Caps Lock](https://i.ibb.co/zXf6R65/Screenshot-2024-01-01-at-2-01-45-PM.png)
+
+## Linux computer setup
+The same as MacOs but without the iCloud part
+
+* For manage the password I use Bitwarden
+
+## Windows computer setup
+
+* Clone this repository to your home directory:
+https://github.com/erickvasm/dotfiles.git
+
+* Run the install script for windows:
+```bash
+cd .dotfiles/os/windows
+./windows.ps1
+```
+
+Note: If the script is not marked as executable, you may receive an error message when trying to run it. To fix this, you can use the following command to make the script executable:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+or
+
+PS C:\path\to\script> Set-ExecutionPolicy Unrestricted
+```
+
+* Run the install script for keyssh or backup keyssh
+```powershell
+cd .dotfiles/scripts
+./keyssh.ps1
+```
+
+
+* Update Microsoft Edge
+  * login in Microsoft Edge
+  * Sync all accounts
+
+
+### Directorios
+
+# 1
+
+Users >  NameUser >  .config >  powershell > tacuya.omp, tacuya.omp.json.bak & user_profile.ps1
+
+# 2
+
+Users >  NameUser > Documents >  PowerShell > Microsoft.PowerShell_profile.ps1
+
+# 3
+
+User > NameUser > AppData > Local > nvim > init.vim  

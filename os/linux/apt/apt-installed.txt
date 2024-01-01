@@ -1,0 +1,8 @@
+git
+openjdk-21-jdk
+python3
+pip
+fzf
+exa
+gnome-tweaks
+curl

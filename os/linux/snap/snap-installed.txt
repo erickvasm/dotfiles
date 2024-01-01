@@ -1,0 +1,9 @@
+postman
+dbeaver-ce
+docker
+onlyoffice-desktopeditors
+vlc
+starship
+gnome-extension-manager
+diff-so-fancy
+bitwarden
