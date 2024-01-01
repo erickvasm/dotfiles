@@ -1,21 +1,3 @@
-# Entorno de desarrollo PowerShell
- 
- 
-# Directorios
-
-# 1
-
-Users >  NameUser >  .config >  powershell > tacuya.omp, tacuya.omp.json.bak & user_profile.ps1
-
-# 2
-
-Users >  NameUser > Documents >  PowerShell > Microsoft.PowerShell_profile.ps1
-
-# 3
-
-User > NameUser > AppData > Local > nvim > init.vim      
-
- 
 # Pasos PowerShell
  
 1. Descargar fuente: NerdFont Hack
@@ -26,7 +8,6 @@ User > NameUser > AppData > Local > nvim > init.vim
   Install-Module oh-my-posh -Scope CurrentUser
 ```
             
-
 3. notepad $PROFILE, dentro del archivo: 
 
 ```sh
@@ -67,7 +48,7 @@ User > NameUser > AppData > Local > nvim > init.vim
 10. Intalar terminal de icons
 
 ```sh
-    Install-Module -Name Terminal-Icons -Repository PSGalley -Force
+    Install-Module -Name Terminal-Icons -Repository PSGallery -Force
     Import-Module Terminal-Icons
 ```   
 11. Install-Module -Name Z -Force
@@ -88,11 +69,9 @@ User > NameUser > AppData > Local > nvim > init.vim
 ```
  
 
-# Pasos Nvim
+## Pasos init.vim
  
 1. Instalar vim-plug
-
-2. En el directorio nvim, clonar mi repositorio de nvim
 
 3. Intalar Plug: :PlugInstall
 
@@ -103,16 +82,3 @@ User > NameUser > AppData > Local > nvim > init.vim
 
 5. npm install -g live-server
  
-# Referencias
-
-1. https://github.com/ryanoasis/nerd-fonts
-
-2. https://github.com/craftzdog/dotfiles-public
-
-3. https://github.com/junegunn/vim-plug
-
-4. https://www.youtube.com/watch?v=5-aK2_WwrmM
- 
-# Licencia
- 
-GNU General Public License.

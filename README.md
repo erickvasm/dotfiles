@@ -66,5 +66,12 @@ For windows, you need to reed the documentation in the folder `doc/Windows.md`
   <img src="https://i.ibb.co/Jzr0387/img1.png">
 </p>
 
+## TODO
+- [ ] Update images of the preview
+- [ ] In windows, update the shortcuts for windows manager on PowerToys
+- [ ] In windows invert the keys of the keyboard and the mouse
+- [ ] Search for translate in spootlight and PowerToys
+- [ ] update dotfiles and documentation for linux
+
 ## References
 This repository is based on [dotly](https://github.com/CodelyTV/dotly/)

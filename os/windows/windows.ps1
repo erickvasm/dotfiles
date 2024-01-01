@@ -49,6 +49,10 @@ Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -Skip
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 
+Write-Host "Install terminal icons"
+Install-Module -Name Terminal-Icons -Repository PSGallery -Force
+Import-Module Terminal-Icons
+
 Write-Host
 
 # Install Fzf
@@ -78,10 +82,9 @@ Write-Host
 Write-Host "Installing nvim-plug"
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -OutFile $env:LOCALAPPDATA\nvim-data\site\autoload\plug.vim
 Write-Host "Copying and moving the nvim folder to appdata nvim"
-Copy-Item -Path $env:USERPROFILE\Documents\Projects\dotfiles\nvim -Destination $env:LOCALAPPDATA\nvim -Recurse -Force
 
-
-Write-Host
+Write-Host "Executing symlink.ps1"
+.\symlink.ps1
 
 # ask if the user wants to install wsl2
 $wsl = Read-Host "Do you want to install wsl2? (y/n)"

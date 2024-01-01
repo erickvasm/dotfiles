@@ -49,7 +49,7 @@ The same as MacOs but without the iCloud part
 * Clone this repository to your home directory:
 https://github.com/erickvasm/dotfiles.git
 
-* Run the install script for windows:
+* Run the install script for windows in administrator mode:
 ```bash
 cd .dotfiles/os/windows
 ./windows.ps1
@@ -64,28 +64,27 @@ or
 PS C:\path\to\script> Set-ExecutionPolicy Unrestricted
 ```
 
-* Run the install script for keyssh or backup keyssh
+* Run the install script for keyssh (right now I just use the github cli)
 ```powershell
 cd .dotfiles/scripts
 ./keyssh.ps1
 ```
 
+* I use the icloud plugin to synchronize passwords. 
+* Clean the bar and leave it with only the windows icon and the search icon 
+  * I leave only the browser, explorer, store and terminal icon
 
 * Update Microsoft Edge
   * login in Microsoft Edge
   * Sync all accounts
 
 
-### Directorios
+## Important Directories to know
 
-# 1
+``` powershell
+Users >  NameUser >  .config >  powershell 
 
-Users >  NameUser >  .config >  powershell > tacuya.omp, tacuya.omp.json.bak & user_profile.ps1
+Users >  NameUser > Documents >  PowerShell 
 
-# 2
-
-Users >  NameUser > Documents >  PowerShell > Microsoft.PowerShell_profile.ps1
-
-# 3
-
-User > NameUser > AppData > Local > nvim > init.vim  
+User > NameUser > AppData > Local > nvim 
+```
