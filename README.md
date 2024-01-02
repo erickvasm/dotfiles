@@ -71,7 +71,8 @@ For windows, you need to reed the documentation in the folder `doc/Windows.md`
 - [ ] In windows, update the shortcuts for windows manager on PowerToys
 - [ ] In windows invert the keys of the keyboard and the mouse
 - [ ] Search for translate in spootlight and PowerToys
-- [ ] update dotfiles and documentation for linux
+- [ ] Update dotfiles and documentation for linux
+- [ ] Make windows terminal faster
 
 ## References
 This repository is based on [dotly](https://github.com/CodelyTV/dotly/)
