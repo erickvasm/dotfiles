@@ -86,6 +86,10 @@ Write-Host "Copying and moving the nvim folder to appdata nvim"
 Write-Host "Executing symlink.ps1"
 .\symlink.ps1
 
+Write-Host "Installing private fonts"
+mkdir ~/.fonts
+cd ~/.fonts && git clone git@github.com:erickvasm/font.git
+
 # ask if the user wants to install wsl2
 $wsl = Read-Host "Do you want to install wsl2? (y/n)"
 if ($wsl -eq "y") {

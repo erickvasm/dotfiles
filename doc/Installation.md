@@ -4,6 +4,7 @@
 * Log in iCloud and Sync all Keychain passwords
 * Update Mac 
 * Restore `~/.ssh` from iCloud
+* Downloand DankMono Font (private repository)
 * Execute the dotfiles installer
 * Login in Mail and sync all accounts
 * Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
@@ -78,6 +79,7 @@ cd .dotfiles/scripts
   * login in Microsoft Edge
   * Sync all accounts
 
+* Descargar fuente: NerdFont Hack y Dank Mono Nerd Font (private repository)
 
 ## Important Directories to know
 

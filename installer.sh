@@ -100,6 +100,10 @@ EOF
 	_a "Bash aliases"
 	ln -s ~/.dotfiles/os/mac/.bash_aliases ~/.bash_aliases
 
+	_a "Installing private font"
+	mkdir ~/.fonts
+	cd ~/.fonts && git clone git@github.com:erickvasm/font.git
+
 	_a "Setup mac config"
 	chmod +x ~/.dotfiles/os/mac/macos.sh
 	~/.dotfiles/os/mac/macos.sh
@@ -204,6 +208,10 @@ if [[ `uname` == "Linux"   ]]; then
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 	source ~/.zshrc
 	nvm install -tls
+
+	_a "Installing private font"
+	mkdir ~/.fonts
+	cd ~/.fonts && git clone git@github.com:erickvasm/font.git
 
 	a_ "Make zsh the default shell"
 	chsh -s $(which zsh)  	

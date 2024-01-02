@@ -55,4 +55,4 @@ The paid one already includes DB as a dataGrid. It can also be used for http wit
 ## Others app
 - DevToysMac
 - Numi: text calculator
-
+- OrbStack: alternative to docker desktop
