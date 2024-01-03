@@ -41,7 +41,6 @@ Some commands to use in iTerminal
 - Open . : to open finder in current directory
 
 ## Others
-
 command , : to open settings in all apps
 
 ## InteliJ
@@ -51,6 +50,16 @@ command , : to open settings in all apps
 - command shift r: to replace in all file
 
 The paid one already includes DB as a dataGrid. It can also be used for http with an `.http` file.
+
+## Vscode
+* shift option f: format code
+* command . : open suggestion
+* command d: select the same concurency
+* command u: deselect one of the concurency
+* Cmd+Shift+L: select all the concurency
+* f2: rename a method or class 
+* cmd t: code ref actor sugestion
+* vsCode port feture to share my localHost
 
 ## Others app
 - DevToysMac

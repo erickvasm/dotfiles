@@ -23,6 +23,12 @@
     },
     "files.autoSave": "afterDelay",
     "files.eol": "\n",
+    "editor.codeActionsOnSave": {
+        "soruce.addMissingImports": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "editor.lightbulb.enabled": false,
     "editor.smoothScrolling": true,
     "editor.minimap.enabled": false,
     "editor.fontFamily": "'DankMono Nerd Font', 'Hack Mono'",
@@ -37,6 +43,13 @@
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.hideCursorInOverviewRuler": true,
     "explorer.compactFolders": false,
+    "[typescript]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": [
+          "source.addMissingImports",
+          "source.fixAll.eslint"
+        ]
+      },
     "apc.electron": {
         "titleBarStyle": "hiddenInset",
         "trafficLightPosition": {
@@ -48,5 +61,5 @@
         "height": 36
     },
     "apc.font.family": "DankMono Nerd Font",
-    "workbench.activityBar.location": "hidden",
+    "workbench.activityBar.location": "hidden"
 }
