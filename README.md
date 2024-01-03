@@ -41,6 +41,8 @@ The following tools are included in this repository:
 - **powershell config**: by  *[devaslife](https://github.com/craftzdog)*
 - **scripts**
 
+`NOTE: VSCode configurations are included so that they are versioned and if someone wants to have the same configuration. Although this is not necessary `
+
 ## Windows
 
 For windows, you need to reed the documentation in the folder `doc/Windows.md`

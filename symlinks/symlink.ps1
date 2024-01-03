@@ -5,3 +5,4 @@ New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\AppData\Local\nvim" -Tar
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gitconfig" -Target "$env:USERPROFILE/.dotfiles/git/.gitconfig"
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gitignore_global" -Target "$env:USERPROFILE/.dotfiles/git/.gitignore_global"
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gitmessage.txt" -Target "$env:USERPROFILE/.dotfiles/git/.gitmessage.txt"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal\LocalState\settings.json" -Target "$env:USERPROFILE/.dotfiles/os/windows/Terminal/settings.json"

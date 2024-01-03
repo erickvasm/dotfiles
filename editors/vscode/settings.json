@@ -1,0 +1,52 @@
+{
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false
+    },
+    "workbench.colorTheme": "Codely Dark",
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+    "workbench.editorAssociations": {
+        "*.plist": "default"
+    },
+    "workbench.layoutControl.enabled": false,
+    "workbench.statusBar.visible": false,
+    "workbench.list.smoothScrolling": true,
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 20,
+    "workbench.list.horizontalScrolling": true,    
+    "window.menuBarVisibility": "compact",
+    "window.commandCenter": false,
+    "files.associations": {
+        "*.strings": "plist"
+    },
+    "files.autoSave": "afterDelay",
+    "files.eol": "\n",
+    "editor.smoothScrolling": true,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'DankMono Nerd Font', 'Hack Mono'",
+    "editor.fontSize": 17,
+    "editor.lineHeight": 2.1,
+    "editor.fontLigatures": true,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.hideCursorInOverviewRuler": true,
+    "explorer.compactFolders": false,
+    "apc.electron": {
+        "titleBarStyle": "hiddenInset",
+        "trafficLightPosition": {
+        "x": 8,
+        "y": 10
+        }
+    },
+    "apc.header": {
+        "height": 36
+    },
+    "apc.font.family": "DankMono Nerd Font",
+    "workbench.activityBar.location": "hidden",
+}
