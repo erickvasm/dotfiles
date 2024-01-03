@@ -72,7 +72,7 @@ For windows, you need to reed the documentation in the folder `doc/Windows.md`
 - [ ] Update images of the preview
 - [ ] In windows, update the shortcuts for windows manager on PowerToys
 - [ ] In windows invert the keys of the keyboard and the mouse
-- [ ] Search for translate in spootlight and PowerToys
+- [ ] Search for translate in spotlight and PowerToys
 - [ ] Update dotfiles and documentation for linux
 - [ ] Make windows terminal faster
 

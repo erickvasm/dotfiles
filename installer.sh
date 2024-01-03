@@ -221,5 +221,5 @@ a_ "Setup the symlinks"
 chmod +x ./symlinks/symlink.sh
 ./symlinks/symlink.sh
 
-_a "🎉 dotly installed correctly! 🎉"
+_a "🎉 dotfiles installed correctly! 🎉"
 _a "Please, restart your terminal to see the changes"
