@@ -3,7 +3,7 @@
 ## Search and replace
 For search/replace in multiple files, LazyVim includes spectre. Just press <leader>sr (s)earch & (r)eplace to open its ui.
 
-## Othes commands
+## Other commands
 
 * <leader> e : open file explorer
 * <TAB> to move to nex tab

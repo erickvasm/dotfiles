@@ -72,7 +72,7 @@
  
 1. Instalar vim-plug
 
-3. Intalar Plug: :PlugInstall
+3. Instalar Plug: :PlugInstall
 
 4. Instalar Coc
        * coc auto close

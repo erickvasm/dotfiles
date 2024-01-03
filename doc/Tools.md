@@ -10,9 +10,9 @@ A example of how to use handbrake to convert a mov file to mp4
 handbrakeCLI -i /path/to/input.mov -o /path/to/output.mp4 -e x264 -q 28 -r 15 -B 64 -X 1280 -O
 ```
 
-## Dark readere shortcut
+## Dark reader shortcut
 
-How to active/deactive dark reader in safari or other browser
+How to active/deactivate dark reader in safari or other browser
 
 - Alt shift d
 
@@ -34,32 +34,32 @@ git add <CTR + T>
 
 Some commands to use in iTerminal
 
-- command shift d: to open new tab horizontally
-- command t: to open new tab vertically
-- command shift i: to write in all tabs
-- command shit enter: to open a terminal of two, larger
+- cmd shift d: to open new tab horizontally
+- cmd t: to open new tab vertically
+- cmd shift i: to write in all tabs
+- cmd shit enter: to open a terminal of two, larger
 - Open . : to open finder in current directory
 
 ## Others
-command , : to open settings in all apps
+cmd , : to open settings in all apps
 
 ## InteliJ
-- command shift a: to open all actions
-- command shift o: to search a file
-- command shift f: to search in all file
-- command shift r: to replace in all file
+- cmd shift a: to open all actions
+- cmd shift o: to search a file
+- cmd shift f: to search in all file
+- cmd shift r: to replace in all file
 
 The paid one already includes DB as a dataGrid. It can also be used for http with an `.http` file.
 
 ## Vscode
 * shift option f: format code
-* command . : open suggestion
-* command d: select the same concurency
-* command u: deselect one of the concurency
-* Cmd+Shift+L: select all the concurency
+* cmd . : open suggestion
+* cmd d: select the same concurrency
+* cmd u: deselect one of the concurrency
+* Cmd Shift L: select all the concurrency
 * f2: rename a method or class 
-* cmd t: code ref actor sugestion
-* vsCode port feture to share my localHost
+* cmd t: code ref actor suggestion
+* vsCode port feature to share my localHost
 
 ## Others app
 - DevToysMac

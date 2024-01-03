@@ -4,7 +4,7 @@
 * Log in iCloud and Sync all Keychain passwords
 * Update Mac 
 * Restore `~/.ssh` from iCloud
-* Downloand DankMono Font (private repository)
+* Downland DankMono Font (private repository)
 * Execute the dotfiles installer
 * Login in Mail and sync all accounts
 * Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
@@ -37,7 +37,7 @@ With the script `macos.sh` have the default configuration for a new mac, but you
 
 ## Remap Caps-Lock
 
-- Remapping your Caps Lock key to mecanic keyboard.
+- Remapping your Caps Lock key to keyboard.
   ![Remap Caps Lock](https://i.ibb.co/zXf6R65/Screenshot-2024-01-01-at-2-01-45-PM.png)
 
 ## Linux computer setup
