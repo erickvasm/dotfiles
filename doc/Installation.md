@@ -1,33 +1,34 @@
 # Installation
 
 ## MacOs computer setup
-* Log in iCloud and Sync all Keychain passwords
-* Update Mac 
-* Restore `~/.ssh` from iCloud
-* Downland DankMono Font (private repository)
-* Execute the dotfiles installer
-* Login in Mail and sync all accounts
-* Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
-* Go to `Preferences/General` and enable font smoothing (if retina display)
-* Open safari and go to `Tabs` and set the tab layout to `Compact`
-* Create a pwa for chatGPT
-* Open Rectangle and import the configuration from `~/.dotfiles/mac/Rectangle`
-* Open JetBrains Toolbox
+
+- Log in iCloud and Sync all Keychain passwords
+- Update Mac
+- Restore `~/.ssh` from iCloud
+- Downland DankMono Font (private repository)
+- Execute the dotfiles installer
+- Login in Mail and sync all accounts
+- Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
+- Go to `Preferences/General` and enable font smoothing (if retina display)
+- Open safari and go to `Tabs` and set the tab layout to `Compact`
+- Create a pwa for chatGPT
+- Open Rectangle and import the configuration from `~/.dotfiles/mac/Rectangle`
+- Open JetBrains Toolbox
   - Login
   - Enable "generate shell scripts in ~/bin"
   - Install IntelliJ
-* Open IntelliJ
+- Open IntelliJ
   - Import from JetBrains account
   - Sync plugins
-* Open VsCode
+- Open VsCode
   - Sync settings
   - Install settings sync extension
-* Open Slack
-  - Login 
-* Open iTerm2
+- Open Slack
+  - Login
+- Open iTerm2
   - Select load preferences from URL and use ~/.dotfiles/mac/iTerm. On the next prompt select "No" to not save the changes
   - Change the font and the theme
-* Restart
+- Restart
 
 With the script `macos.sh` have the default configuration for a new mac, but you can use the script to export your own configuration.
 
@@ -41,22 +42,25 @@ With the script `macos.sh` have the default configuration for a new mac, but you
   ![Remap Caps Lock](https://i.ibb.co/zXf6R65/Screenshot-2024-01-01-at-2-01-45-PM.png)
 
 ## Linux computer setup
+
 The same as MacOs but without the iCloud part
 
-* For manage the password I use Bitwarden
+- For manage the password I use Bitwarden
 
 ## Windows computer setup
 
-* Clone this repository to your home directory:
-https://github.com/erickvasm/dotfiles.git
+- Clone this repository to your home directory:
+  https://github.com/erickvasm/dotfiles.git
 
-* Run the install script for windows in administrator mode:
+- Run the install script for windows in administrator mode:
+
 ```bash
 cd .dotfiles/os/windows
 ./windows.ps1
 ```
 
 Note: If the script is not marked as executable, you may receive an error message when trying to run it. To fix this, you can use the following command to make the script executable:
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
@@ -65,28 +69,33 @@ or
 PS C:\path\to\script> Set-ExecutionPolicy Unrestricted
 ```
 
-* Run the install script for keyssh (right now I just use the github cli)
+- Run the install script for keyssh (right now I just use the github cli)
+
 ```powershell
 cd .dotfiles/scripts
 ./keyssh.ps1
 ```
 
-* I use the icloud plugin to synchronize passwords. 
-* Clean the bar and leave it with only the windows icon and the search icon 
-  * I leave only the browser, explorer, store and terminal icon
+- I use the icloud plugin to synchronize passwords.
+- Clean the bar and leave it with only the windows icon and the search icon
 
-* Update Microsoft Edge
-  * login in Microsoft Edge
-  * Sync all accounts
+  - I leave only the browser, explorer, store and terminal icon
 
-* Descargar fuente: NerdFont Hack y Dank Mono Nerd Font (private repository)
+- Update Microsoft Edge
+  - login in Microsoft Edge
+  - Sync all accounts
+
+## Setup lid of laptop
+
+- Go to `Preferences/Power` and set the lid to `Do nothing` when is closed
+  ![Setup lid](https://i.ibb.co/YjnzHvX/Screenshot-2024-01-02-221952.png "Setup")
 
 ## Important Directories to know
 
-``` powershell
-Users >  NameUser >  .config >  powershell 
+```powershell
+Users >  NameUser >  .config >  powershell
 
-Users >  NameUser > Documents >  PowerShell 
+Users >  NameUser > Documents >  PowerShell
 
-User > NameUser > AppData > Local > nvim 
+User > NameUser > AppData > Local > nvim
 ```
