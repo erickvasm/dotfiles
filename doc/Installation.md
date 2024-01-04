@@ -45,7 +45,9 @@ With the script `macos.sh` have the default configuration for a new mac, but you
 
 The same as MacOs but without the iCloud part
 
+- For setup ubuntu, you can read this article ![Article](https://medium.com/@erickvasm/ubuntu-setup-29323c81a258)
 - For manage the password I use Bitwarden
+
 
 ## Windows computer setup
 
