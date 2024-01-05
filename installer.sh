@@ -118,7 +118,7 @@ EOF
 fi
 
 if [[ `uname` == "Linux"   ]]; then
-    _a "Linux detected. Using Linux config..."
+  _a "Linux detected. Using Linux config..."
 
 	_a "Updating apt and upgrading packages"
 	sudo apt-get update
@@ -213,6 +213,23 @@ if [[ `uname` == "Linux"   ]]; then
 	mkdir ~/.fonts
 	cd ~/.fonts && git clone git@github.com:erickvasm/font.git
 
+	a_ "Installing icon, theme and cursor"
+	mkdir ~/.themes
+	cd ~/.themes
+	curl -L -O https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2023-10-13.zip
+	unzip 2023-10-13.zip
+
+	mkdir ~/.icons
+	cd ~/.icons
+	curl -L -O https://github.com/vinceliuice/WhiteSur-icon-theme/archive/refs/tags/2023-07-03.zip
+	unzip 2023-07-03.zip
+
+	mkdir ~/.cursors
+	cd ~/.cursors
+	git clone git@github.com:vinceliuice/McMojave-cursors.git
+	cd McMojave-cursors
+	./install.sh
+	
 	a_ "Make zsh the default shell"
 	chsh -s $(which zsh)  	
 fi

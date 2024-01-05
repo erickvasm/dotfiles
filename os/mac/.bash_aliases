@@ -10,7 +10,6 @@ alias gp='function __gp() { git add -A && git commit -m "$1" && git push origin 
 alias ll="exa -l -g -a --icons"
 alias ls="exa -a --icons"
 alias cat="bat"
-alias idea="~/Applications/IntelliJ\ IDEA\ Community\ Edition.app/Contents/MacOS/./idea &>/dev/null &"
 alias pr="gh pr create -a @me -r mangulof -f"
 
 # only for macOS
