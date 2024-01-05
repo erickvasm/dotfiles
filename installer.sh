@@ -213,6 +213,14 @@ if [[ `uname` == "Linux"   ]]; then
 	mkdir ~/.fonts
 	cd ~/.fonts && git clone git@github.com:erickvasm/font.git
 
+	a_ "Installing Terminal Theme"
+	mkdir ~/.terminal-themes
+	cd ~/.terminal-themes
+	sudo apt-get install dconf-cli
+	git clone https://github.com/dracula/gnome-terminal
+	cd gnome-terminal
+	./install.sh
+
 	a_ "Installing icon, theme and cursor"
 	mkdir ~/.themes
 	cd ~/.themes
