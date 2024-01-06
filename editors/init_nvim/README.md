@@ -160,6 +160,14 @@ npm install -g live-server
  
 Esto se debe colocar en el archivo `.zshrc` o `bashrc`
 
+# Theme
+
+El tema de codely tv, aún está en desarrollo, pero se puede utilizar.
+En el archivo `init.vim` se debe colocar lo siguiente:
+
+```sh
+colorscheme codely
+```
  
 ```sh
 alias vim='nvim'
