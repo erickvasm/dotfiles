@@ -48,8 +48,28 @@ cmd , : to open settings in all apps
 - cmd shift o: to search a file
 - cmd shift f: to search in all file
 - cmd shift r: to replace in all file
+- cmd shift v: paste history
+- cmd b: open a class reference
+- cmd F12: file structure
+- ctrl m: move into the brackets
+- cmd delete: delete one line
+- ctrl g: multi concurrency
+- shift arrow: multi cursor
+- ctrl t: refactor this
 
 The paid one already includes DB as a dataGrid. It can also be used for http with an `.http` file.
+
+- Entrar en otra clase desde una referencia existente en la que estemos es haciendo Cmd + click o bien Cmd + B (Ctrl + B en Win/Linux)
+
+- Ctrl + G (Alt + J en Win/Linux) podemos seleccionar múltiples
+
+- Para acceder a estas intenciones podemos abrir el menú mediante el atajo Option + Enter 
+
+- Save Actions
+
+- [ ] img
+
+If you want to deactivate the imports toggle, go to configuration, code folding
 
 ## Vscode
 * shift option f: format code
@@ -60,6 +80,7 @@ The paid one already includes DB as a dataGrid. It can also be used for http wit
 * f2: rename a method or class 
 * cmd t: code ref actor suggestion
 * vsCode port feature to share my localHost
+* cmd i: ask copilot 
 
 ## Others app
 - DevToysMac
