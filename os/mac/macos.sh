@@ -96,7 +96,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# shortcut to copy with format
+# shortcut to paste with format
 defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 98 "
   <dict>
     <key>enabled</key><false/>
@@ -111,6 +111,22 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 98
     </dict>
   </dict>
 "
+
+# shortcut to paste without format
+# TODO
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 99 "
+  <dict>
+    <key>enabled</key><false/>
+    <key>value</key><dict>
+      <key>type</key><string>standard</string>
+      <key>parameters</key>
+      <array>
+        <integer>47</integer>
+        <integer>44</integer>
+        <integer>524288</integer>
+      </array>
+    </dict>
+  </dict>
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #

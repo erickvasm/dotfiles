@@ -1,5 +1,4 @@
 alias ..="cd .."
-alias j17="export JAVA_HOME=$(/usr/libexec/java_home -v 17); java -version"
 alias c="clear"
 alias h="history"
 alias update="brew update && brew upgrade && brew cleanup"
