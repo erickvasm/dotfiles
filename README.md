@@ -5,12 +5,12 @@
 
 ## Restore your Dotfiles manually
 
-* Install git
-* Clone your dotfiles repository `git clone [your repository of dotfiles] $HOME/.dotfiles`
-* Go to your dotfiles folder `cd $HOME/.dotfiles`
-* Give execution permissions to the install script `chmod +x install`
-* Execute the install script `./install`
-* Restart your terminal
+- Install git
+- Clone your dotfiles repository `git clone [your repository of dotfiles] $HOME/.dotfiles`
+- Go to your dotfiles folder `cd $HOME/.dotfiles`
+- Give execution permissions to the install script `chmod +x install`
+- Execute the install script `./install`
+- Restart your terminal
 
 ## Estructure of the dotfiles repository
 
@@ -19,13 +19,14 @@
 ├── 📁 editors             # Settings of your editors (vim)
 ├── 📁 git                 # git config
 ├── 📁 langs               # Config for programming languages/libraries
-├── 📁 os                  # Specific config of your Operative System 
+├── 📁 os                  # Specific config of your Operative System
 ├── 📁 scripts             # Your custom scripts
 ├── 📁 shell               # Bash/Zsh/Fish… configuration files
 └── 📁 symlinks            # The config of your symlinks
 ```
 
 ## Tools
+
 The following tools are included in this repository:
 
 - **exa:** ls replacement
@@ -38,7 +39,7 @@ The following tools are included in this repository:
 - **A terminal theme**
 - **git config**
 - **nvim config**
-- **powershell config**: by  *[devaslife](https://github.com/craftzdog)*
+- **powershell config**: by _[devaslife](https://github.com/craftzdog)_
 - **scripts**
 
 `NOTE: VSCode configurations are included so that they are versioned and if someone wants to have the same configuration. Although this is not necessary `
@@ -49,13 +50,14 @@ For windows, you need to reed the documentation in the folder `doc/Windows.md`
 
 ## Preview of the dotfiles
 
-### Nvim
-
-### Zsh
-
 <p align="center">
   <b>Bash config</b><br>
   <img src="https://i.ibb.co/pXMLKZT/Screenshot-2023-02-12-at-15-14-29.png">
+</p>
+
+<p align="center">
+  <b>Bash with starhip</b><br>
+  <img src="https://i.ibb.co/RbbFQS4/Screenshot-2024-01-11-at-12-40-44-PM.png">
 </p>
 
 <p align="center">
@@ -64,17 +66,24 @@ For windows, you need to reed the documentation in the folder `doc/Windows.md`
 </p>
 
 <p align="center">
-  <b>PowerShell</b><br>
+  <b>LazzyVim config</b><br>
+  <img src="https://i.ibb.co/XCsrZFN/Screenshot-2024-01-11-at-12-42-49-PM.png">
+</p>
+
+<p align="center">
+  <b>PowerShell with Tacuya configs</b><br>
   <img src="https://i.ibb.co/Jzr0387/img1.png">
 </p>
 
+<p align="center">
+  <b>VScode configs</b><br>
+  <img src="https://i.ibb.co/Lx7QZTg/Screenshot-2024-01-11-at-12-48-18-PM.png">
+</p>
+
 ## TODO
-- [ ] Update images of the preview
+
 - [ ] In windows, update the shortcuts for windows manager on PowerToys
-- [ ] In windows invert the keys of the keyboard and the mouse
-- [ ] Search for translate in spotlight and PowerToys
-- [ ] Update dotfiles and documentation for linux
-- [ ] Make windows terminal faster
 
 ## References
+
 This repository is based on [dotly](https://github.com/CodelyTV/dotly/)

@@ -85,12 +85,11 @@ cd .dotfiles/scripts
 
 - I use the icloud plugin to synchronize passwords.
 - Clean the bar and leave it with only the windows icon and the search icon
-
   - I leave only the browser, explorer, store and terminal icon
-
 - Update Microsoft Edge
   - login in Microsoft Edge
   - Sync all accounts
+- Invert the scroll direction and the keymap (like mac)
 
 ## Setup lid of laptop
 
