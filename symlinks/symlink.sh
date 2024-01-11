@@ -10,6 +10,4 @@ ln -s ~/.dotfiles/editors/vscode/snippets/ ~/Library/Application\ Support/Code/U
 ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
 ln -s ~/.dotfiles/git/.gitmessage.txt ~/.gitmessage.txt
-ln -s ~/.dotfiles/os/unix/gh  ~/.config/gh
-ln -s ~/.dotfiles/os/unix/github-copilot  ~/.config/github-copilot
 ln -s ~/.dotfiles/langs/java/gradle/ ~/.gradle

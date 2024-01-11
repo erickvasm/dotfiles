@@ -82,21 +82,6 @@ if [[ `uname` == "Darwin"   ]]; then
 	curl -LJO https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
 	unzip Hack.zip -d Hack
 
-	a_ "Create a symlink for copilot hosts"
-	read -p "Introduce tu token de GitHub Copilot: " github_token
-	hosts_dir="$HOME/.dotfiles/os/unix/github-copilot"
-	hosts_path="$hosts_dir/hosts.json"
-	mkdir -p "$hosts_dir"
-cat <<EOF >"$hosts_path"
-{
-  "github.com": {
-    "user": "erickvasm",
-    "oauth_token": "$github_token"
-  }
-}
-EOF
-	_a "Archivo '$hosts_path' creado exitosamente con el token proporcionado."
-
 	_a "Bash aliases"
 	ln -s ~/.dotfiles/os/mac/.bash_aliases ~/.bash_aliases
 
