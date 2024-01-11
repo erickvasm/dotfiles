@@ -46,7 +46,7 @@ The following tools are included in this repository:
 
 ## Windows
 
-For windows, you need to reed the documentation in the folder `doc/Windows.md`
+For windows, you need to read the documentation in the folder `doc/Windows.md`
 
 ## Preview of the dotfiles
 
