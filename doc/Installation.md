@@ -13,6 +13,7 @@
 - Open safari and go to `Tabs` and set the tab layout to `Compact`
 - Create a pwa for chatGPT
 - Open Rectangle and import the configuration from `~/.dotfiles/mac/Rectangle`
+  - Go to `Settings/General/Login items/` and add Rectangle
 - Open JetBrains Toolbox
   - Login
   - Enable "generate shell scripts in ~/bin"
@@ -41,11 +42,15 @@ With the script `macos.sh` have the default configuration for a new mac, but you
 - Remapping your Caps Lock key to keyboard.
   ![Remap Caps Lock](https://i.ibb.co/zXf6R65/Screenshot-2024-01-01-at-2-01-45-PM.png)
 
+- Remapping `Paste and Match Style` to `Cmd + Shift + V`
+  ![Remap Paste and Match Style](https://i.ibb.co/XbNSHCt/Screenshot-2024-01-06-at-8-53-52-PM.png)
+
 ## Linux computer setup
 
 The same as MacOs but without the iCloud part
 
-- For setup ubuntu, you can read this article ![Article](https://medium.com/@erickvasm/ubuntu-setup-29323c81a258)
+- For setup ubuntu, you can read this article 
+[Ubuntu](https://medium.com/@erickvasm/ubuntu-setup-29323c81a258)
 - For manage the password I use Bitwarden
 
 

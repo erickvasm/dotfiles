@@ -30,7 +30,7 @@ git add <CTR + T>
 <CTR + R>
 ```
 
-## iTerminal 
+## iTerminal
 
 Some commands to use in iTerminal
 
@@ -41,9 +41,11 @@ Some commands to use in iTerminal
 - Open . : to open finder in current directory
 
 ## Others
+
 cmd , : to open settings in all apps
 
 ## InteliJ
+
 - cmd shift a: to open all actions
 - cmd shift o: to search a file
 - cmd shift f: to search in all file
@@ -63,26 +65,32 @@ The paid one already includes DB as a dataGrid. It can also be used for http wit
 
 - Ctrl + G (Alt + J en Win/Linux) podemos seleccionar múltiples
 
-- Para acceder a estas intenciones podemos abrir el menú mediante el atajo Option + Enter 
+- Para acceder a estas intenciones podemos abrir el menú mediante el atajo Option + Enter
 
 - Save Actions
 
-- [ ] img
+![Config](https://i.ibb.co/B3DDv0M/Screenshot-2024-01-06-at-2-04-17-PM.png)
+
+- Keymap
+
+![Config](https://i.ibb.co/dKdFMNQ/Screenshot-2024-01-08-at-10-10-46-AM.png)
 
 If you want to deactivate the imports toggle, go to configuration, code folding
 
 ## Vscode
-* shift option f: format code
-* cmd . : open suggestion
-* cmd d: select the same concurrency
-* cmd u: deselect one of the concurrency
-* Cmd Shift L: select all the concurrency
-* f2: rename a method or class 
-* cmd t: code ref actor suggestion
-* vsCode port feature to share my localHost
-* cmd i: ask copilot 
+
+- shift option f: format code
+- cmd . : open suggestion
+- cmd d: select the same concurrency
+- cmd u: deselect one of the concurrency
+- Cmd Shift L: select all the concurrency
+- f2: rename a method or class
+- cmd t: code ref actor suggestion
+- vsCode port feature to share my localHost
+- cmd i: ask copilot
 
 ## Others app
+
 - DevToysMac
 - Numi: text calculator
 - OrbStack: alternative to docker desktop
