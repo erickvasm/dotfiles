@@ -48,37 +48,47 @@ The following tools are included in this repository:
 
 For windows, you need to read the documentation in the folder `doc/Windows.md`
 
-## Preview of the dotfiles
+## Preview of dotfiles
 
-<p align="center">
-  <b>Bash config</b><br>
-  <img src="https://i.ibb.co/pXMLKZT/Screenshot-2023-02-12-at-15-14-29.png">
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <b>Bash config</b><br>
+      <img src="https://i.ibb.co/pXMLKZT/Screenshot-2023-02-12-at-15-14-29.png">
+    </td>
+    <td align="center">
+      <b>Bash with starhip</b><br>
+      <img src="https://i.ibb.co/RbbFQS4/Screenshot-2024-01-11-at-12-40-44-PM.png">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>Init.vim Transparent</b><br>
+      <img src="https://i.ibb.co/68RYsWq/vim.png">
+    </td>
+    <td align="center">
+      <b>LazzyVim config</b><br>
+      <img src="https://i.ibb.co/XCsrZFN/Screenshot-2024-01-11-at-12-42-49-PM.png">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>PowerShell with Tacuya configs</b><br>
+      <img src="https://i.ibb.co/Jzr0387/img1.png">
+    </td>
+    <td align="center">
+      <b>PowerShell with Starchip</b><br>
+      <img src="https://i.ibb.co/YDmRCMg/terminal.png">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <b>VScode configs</b><br>
+      <img src="https://i.ibb.co/Lx7QZTg/Screenshot-2024-01-11-at-12-48-18-PM.png">
+    </td>
+  </tr>
+</table>
 
-<p align="center">
-  <b>Bash with starhip</b><br>
-  <img src="https://i.ibb.co/RbbFQS4/Screenshot-2024-01-11-at-12-40-44-PM.png">
-</p>
-
-<p align="center">
-  <b>Init.vim Transparent</b><br>
-  <img src="https://i.ibb.co/df3YpSB/ejem1.png">
-</p>
-
-<p align="center">
-  <b>LazzyVim config</b><br>
-  <img src="https://i.ibb.co/XCsrZFN/Screenshot-2024-01-11-at-12-42-49-PM.png">
-</p>
-
-<p align="center">
-  <b>PowerShell with Tacuya configs</b><br>
-  <img src="https://i.ibb.co/Jzr0387/img1.png">
-</p>
-
-<p align="center">
-  <b>VScode configs</b><br>
-  <img src="https://i.ibb.co/Lx7QZTg/Screenshot-2024-01-11-at-12-48-18-PM.png">
-</p>
 
 ## TODO
 

@@ -80,7 +80,8 @@ Write-Host
 
 
 Write-Host "Installing nvim-plug"
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -OutFile $env:LOCALAPPDATA\nvim-data\site\autoload\plug.vim
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
 Write-Host "Copying and moving the nvim folder to appdata nvim"
 
 Write-Host "Executing symlink.ps1"
