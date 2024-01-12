@@ -89,11 +89,6 @@ For windows, you need to read the documentation in the folder `doc/Windows.md`
   </tr>
 </table>
 
-
-## TODO
-
-- [ ] In windows, update the shortcuts for windows manager on PowerToys
-
 ## References
 
 This repository is based on [dotly](https://github.com/CodelyTV/dotly/)

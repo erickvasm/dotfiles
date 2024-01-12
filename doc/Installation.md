@@ -89,7 +89,7 @@ cd .dotfiles/scripts
 - Update Microsoft Edge
   - login in Microsoft Edge
   - Sync all accounts
-- Invert the scroll direction and the keymap (like mac)
+- Invert the scroll direction and the keymap (like mac) (TODO)
 
 ## Setup lid of laptop
 
