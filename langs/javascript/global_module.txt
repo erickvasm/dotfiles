@@ -1,1 +1,3 @@
 typescript
+npm-check-updates
+live-server
