@@ -3,8 +3,8 @@
 
 Import-Module PSReadLine
 Import-Module posh-git
-$omp_config = Join-Path $PSScriptRoot ".\takuya.omp.json"
-oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
+#$omp_config = Join-Path $PSScriptRoot ".\takuya.omp.json"
+Invoke-Expression (&starship init powershell)
 Import-Module -Name Terminal-Icons
 
 # PSReadLine
