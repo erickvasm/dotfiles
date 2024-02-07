@@ -33,6 +33,7 @@ cask "rectangle"
 cask "visual-studio-code"
 cask "visualvm"
 cask "devtoys"
+cask "monitorcontrol"
 mas "Amphetamine", id: 937984704
 mas "LanguageTool", id: 1534275760
 mas "Dark Reader for Safar", id: 1438243180
