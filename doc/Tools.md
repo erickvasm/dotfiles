@@ -44,6 +44,10 @@ Some commands to use in iTerminal
 
 cmd , : to open settings in all apps
 
+## iTerminal
+
+cmd + shift + I: write in all terminal sesion 
+
 ## InteliJ
 
 - cmd shift a: to open all actions

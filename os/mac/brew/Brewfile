@@ -14,7 +14,7 @@ brew "maven"
 brew "mtr"
 brew "neovim"
 brew "node"
-bew  "openjdk@21"
+brew  "openjdk@21"
 brew "ripgrep"
 brew "sl"
 brew "speedtest-cli", link: false
