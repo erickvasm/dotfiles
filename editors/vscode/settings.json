@@ -29,6 +29,7 @@
     "soruce.addMissingImports": "explicit",
     "source.organizeImports": "explicit"
   },
+  "editor.scrollBeyondLastLine": false,
   "editor.formatOnSave": true,
   "editor.lightbulb.enabled": "off",
   "editor.smoothScrolling": true,
