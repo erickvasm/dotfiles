@@ -65,5 +65,5 @@
   },
   "apc.font.family": "DankMono Nerd Font",
   "workbench.statusBar.visible": false,
-  "workbench.activityBar.location": "hidden"
+  "window.nativeTabs": true
 }
