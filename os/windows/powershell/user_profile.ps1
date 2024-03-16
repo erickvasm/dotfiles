@@ -43,6 +43,7 @@ function gac {
 
 # Alias
 Set-Alias vim nvim
+Set-Alias update winget upgrade -h --all
 Set-Alias ll ls
 Set-Alias g git
 Set-Alias grep findstr
