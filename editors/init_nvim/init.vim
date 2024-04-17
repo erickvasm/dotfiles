@@ -207,7 +207,7 @@ function! TransparentBackground()
     highlight VertSplit gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
 endfunction
 
-# Para desactivar el tema TransparentBackground solo hay que cambiarlo por set background dark o ligth
+" Para desactivar el tema TransparentBackground solo hay que cambiarlo por set background dark o ligth
 augroup MyColors
     autocmd!
     autocmd ColorScheme dracula call DraculaTweaks()
