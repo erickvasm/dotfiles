@@ -1,9 +1,9 @@
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# starship
-eval "$(starship init bash)"
-export STARSHIP_CONFIG=/Users/graifin/.config/starship.toml
+# starship -> activar solo si se desea usar starship
+# eval "$(starship init bash)"
+# export STARSHIP_CONFIG=/Users/graifin/.config/starship.toml
 
 # nvim
 export NVM_DIR="$HOME/.nvm"
