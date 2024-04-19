@@ -1,48 +1,56 @@
 #!/usr/bin/env bash
 
+# Desactivar el prompt por defecto
+PS1=""
+
 prompt_git() {
-	local s='';
-	local branchName='';
+    local branchName='';
+    local changes='';
+    local icon='';
 
-	git rev-parse --is-inside-work-tree &>/dev/null || return;
+    git rev-parse --is-inside-work-tree &>/dev/null || return;
 
-	branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-		git describe --all --exact-match HEAD 2> /dev/null || \
-		git rev-parse --short HEAD 2> /dev/null || \
-		echo '(unknown)')";
+    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+        git describe --all --exact-match HEAD 2> /dev/null || \
+        git rev-parse --short HEAD 2> /dev/null || \
+        echo '(unknown)')";
 
-	repoUrl="$(git config --get remote.origin.url)";
-	if grep -q 'chromium/src.git' <<< "${repoUrl}"; then
-		s+='*';
-	else
-		if ! $(git diff --quiet --ignore-submodules --cached); then
-			s+='+';
-		fi;
-		if ! $(git diff-files --quiet --ignore-submodules --); then
-			s+='!';
-		fi;
-		if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-			s+='?';
-		fi;
-		if $(git rev-parse --verify refs/stash &>/dev/null); then
-			s+='$';
-		fi;
-	fi;
+    repoUrl="$(git config --get remote.origin.url)";
+    if grep -q 'chromium/src.git' <<< "${repoUrl}"; then
+        icon='*'; # Icono para el repositorio chromium
+    else
+        icon=''; # Icono de git branch
+    fi;
 
-	[ -n "${s}" ] && s=" [${s}]";
+    if ! $(git diff --quiet --ignore-submodules --cached); then
+        changes+='+';
+    fi;
+    if ! $(git diff-files --quiet --ignore-submodules --); then
+        changes+='!';
+    fi;
+    if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+        changes+='?';
+    fi;
+    if $(git rev-parse --verify refs/stash &>/dev/null); then
+        changes+='$';
+    fi;
 
-	echo -e "${1}${branchName}${2}${s}";
+    [ -n "${changes}" ] && changes=" [${changes}]";
+
+    echo -e "${1}${icon} ${branchName}${2}${changes}";
 }
 
 if tput setaf 1 &> /dev/null; then
-	bold=$(tput bold);
+    bold=$(tput bold);
 fi;
 
+bold=$(tput bold)
+reset=$(tput sgr0)
+
+# Configurar el prompt de Bash
 PS1+="\[${bold}\]\n"; # newline
-PS1="\n\[\e[0;93m\][\u]\[\e[m\]"    # username
-PS1+=" "    # space
-PS1+="\[\e[0;95m\]\W\[\e[m\] "    # current directory
-PS1+="\[\e[0;92m\]\$(prompt_git)\[\e[m\]\n"    # current branch
-PS1+=" "    # space
-PS1+="↳ "  
-export PS1;
+PS1+="\n\[$(tput setaf 91)\]⚡\[$reset\] " # prompt symbol rojo por defecto
+PS1+="\[$(tput setaf 85)\]\W\[$reset\] " # current directory
+PS1+="\[$(tput setaf 92)\]\$(prompt_git)\[$reset\]\n" # current branch
+PS1+="↳  "
+export PS
