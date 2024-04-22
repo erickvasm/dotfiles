@@ -3,54 +3,73 @@
 # Desactivar el prompt por defecto
 PS1=""
 
-prompt_git() {
-    local branchName='';
-    local changes='';
-    local icon='';
+# Define los colores en variables
+bold=$(tput bold)
+red=$(tput setaf 1)
+green=$(tput setaf 85)
+violet=$(tput setaf 92)
+reset=$(tput sgr0)
 
-    git rev-parse --is-inside-work-tree &>/dev/null || return;
+# Método para obtener el nombre e icono de la rama actual
+prompt_git_info() {
+    if git rev-parse --is-inside-work-tree &>/dev/null; then
+        local repoUrl="$(git config --get remote.origin.url)";
+        local icon='';
 
-    branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-        git describe --all --exact-match HEAD 2> /dev/null || \
-        git rev-parse --short HEAD 2> /dev/null || \
-        echo '(unknown)')";
+        if grep -q 'chromium/src.git' <<< "${repoUrl}"; then
+            icon='*'; # Icono para el repositorio chromium
+        else
+            icon=''; # Icono de git branch
+        fi;
 
-    repoUrl="$(git config --get remote.origin.url)";
-    if grep -q 'chromium/src.git' <<< "${repoUrl}"; then
-        icon='*'; # Icono para el repositorio chromium
-    else
-        icon=''; # Icono de git branch
-    fi;
+        local branchName='';
+        branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+            git describe --all --exact-match HEAD 2> /dev/null || \
+            git rev-parse --short HEAD 2> /dev/null || \
+            echo '(unknown)')";
 
-    if ! $(git diff --quiet --ignore-submodules --cached); then
-        changes+='+';
-    fi;
-    if ! $(git diff-files --quiet --ignore-submodules --); then
-        changes+='!';
-    fi;
-    if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-        changes+='?';
-    fi;
-    if $(git rev-parse --verify refs/stash &>/dev/null); then
-        changes+='$';
-    fi;
-
-    [ -n "${changes}" ] && changes=" [${changes}]";
-
-    echo -e "${1}${icon} ${branchName}${2}${changes}";
+        echo -n "${violet}${icon} ${branchName}${reset} ";
+    fi
 }
 
-if tput setaf 1 &> /dev/null; then
-    bold=$(tput bold);
-fi;
+# Método para obtener los iconos de cambios en Git y asignarles color rojo
+prompt_git_changes() {
+    local changes='';
 
-bold=$(tput bold)
-reset=$(tput sgr0)
+    if git rev-parse --is-inside-work-tree &>/dev/null; then
+        if ! $(git diff --quiet --ignore-submodules --cached); then
+            changes+='+';
+        fi;
+        if ! $(git diff-files --quiet --ignore-submodules --); then
+            changes+='!';
+        fi;
+        if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            changes+='?';
+        fi;
+        if $(git rev-parse --verify refs/stash &>/dev/null); then
+            changes+='\$';
+        fi;
+    fi;
+
+    [ -n "${changes}" ] && changes="${red}[${changes}]${reset}";
+
+    echo -n "${changes}";
+}
+
+
+# Método para determinar si hay un error y asignar color rojo al icono del prompt
+prompt_error_color() {
+    if [[ $? -ne 0 ]]; then
+        echo -n "${red}";
+    else
+        echo -n "${violet}";
+    fi
+}
 
 # Configurar el prompt de Bash
 PS1+="\[${bold}\]\n"; # newline
-PS1+="\n\[$(tput setaf 91)\]⚡\[$reset\] " # prompt symbol rojo por defecto
-PS1+="\[$(tput setaf 85)\]\W\[$reset\] " # current directory
-PS1+="\[$(tput setaf 92)\]\$(prompt_git)\[$reset\]\n" # current branch
+PS1+="\n\$(prompt_error_color)⚡${reset} " # prompt symbol cambia de color según el estado de error
+PS1+="\[${green}\]\W \[${reset}\]" # current directory
+PS1+="\$(prompt_git_info)\$(prompt_git_changes)\n" # current branch con cambios en rojo
 PS1+="↳  "
-export PS
+export PS1
