@@ -54,7 +54,7 @@ For windows, you need to read the documentation in the folder `doc/Windows.md`
   <tr>
     <td align="center">
       <b>Bash config</b><br>
-      <img src="https://i.ibb.co/pXMLKZT/Screenshot-2023-02-12-at-15-14-29.png">
+      <img src="https://i.ibb.co/YNZX005/Screenshot-2024-04-22-at-11-05-43-AM.png">
     </td>
     <td align="center">
       <b>Bash with starhip</b><br>
@@ -63,8 +63,8 @@ For windows, you need to read the documentation in the folder `doc/Windows.md`
   </tr>
   <tr>
     <td align="center">
-      <b>Init.vim Transparent</b><br>
-      <img src="https://i.ibb.co/68RYsWq/vim.png">
+      <b>Init.vim</b><br>
+      <img src="https://i.ibb.co/8DZ8RFB/Screenshot-2024-04-22-at-11-08-08-AM.png">
     </td>
     <td align="center">
       <b>LazzyVim config</b><br>
