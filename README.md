@@ -84,7 +84,7 @@ For windows, you need to read the documentation in the folder `doc/Windows.md`
   <tr>
     <td colspan="2" align="center">
       <b>VScode configs</b><br>
-      <img src="https://i.ibb.co/Lx7QZTg/Screenshot-2024-01-11-at-12-48-18-PM.png">
+      <img src="https://i.ibb.co/94rX2Mp/Screenshot-2024-04-22-at-11-46-39-AM.png">
     </td>
   </tr>
 </table>
