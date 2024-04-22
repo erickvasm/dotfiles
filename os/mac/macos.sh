@@ -127,6 +127,7 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 99
       </array>
     </dict>
   </dict>
+"
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
