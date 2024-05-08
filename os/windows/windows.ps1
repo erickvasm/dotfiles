@@ -66,7 +66,7 @@ Write-Host
 $apps = @("git", "vscode", 
             "java", "python3",
             "microsoft.powertoys",
-            "fzf", "exa", "bat", 
+            "fzf", "exa",
             "intellij-idea-community", 
             "google-chrome", "dbeaver")
 
@@ -90,17 +90,3 @@ Write-Host "Executing symlink.ps1"
 Write-Host "Installing private fonts"
 mkdir ~/.fonts
 cd ~/.fonts && git clone git@github.com:erickvasm/font.git
-
-# ask if the user wants to install wsl2
-$wsl = Read-Host "Do you want to install wsl2? (y/n)"
-if ($wsl -eq "y") {
-    Write-Host "Installing wsl2"
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-    Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-    Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
-    Add-AppxPackage .\Ubuntu.appx
-    Write-Host "Installing wsl2"
-    wsl --set-default-version 2
-    Write-Host "Installing Ubuntu 22.04"
-    wsl --install -d Ubuntu-22.04
-}

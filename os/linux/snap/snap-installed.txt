@@ -1,5 +1,4 @@
 postman
-dbeaver-ce
 docker
 onlyoffice-desktopeditors
 vlc
