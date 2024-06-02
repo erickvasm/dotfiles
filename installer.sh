@@ -1,214 +1,218 @@
 #!/usr/bin/env bash
 
+# Define colors
 red='\033[0;31m'
 green='\033[0;32m'
 purple='\033[0;35m'
 normal='\033[0m'
 
-_w() {
-	local -r text="${1-}"
-	echo -e "$text"
-}
+# functions
+_w() { echo -e "${1-}"; }
 _a() { _w " > $1"; }
-_e() { _a "${red}$1${normal}"; }
-_s() { _a "${green}$1${normal}"; }
+_e() { _w "${red}$1${normal}"; }
+_s() { _w "${green}$1${normal}"; }
 _q() { read -rp "🤔 $1: " "$2"; }
-
 current_timestamp() { date +%s; }
+command_exists() { type "$1" >/dev/null 2>&1; }
 
-command_exists() {
-	type "$1" >/dev/null 2>&1
+
+# Main function for installing dotfiles
+install_dotfiles() {
+    _w "  ┌────────────────────────────────────┐"
+    _w "~ │ 🚀 ${green}dotfiles${normal} installer! │ ~"
+    _w "  └────────────────────────────────────┘"
+    _w
+    _q "The dotfiles will be installed in (default ~/.dotfiles): " dotfiles_dir
+    dotfiles_dir=${dotfiles_dir:-~/.dotfiles}
+    fonts_dir="$HOME/.fonts"
+    repo_dir="$HOME/fonts-personal"
+
+    # Rename current directory to ~/.dotfiles
+    mv ~/dotfiles "$dotfiles_dir" || { _e "Cannot rename directory to $dotfiles_dir"; return 1; }
+
+    # Change to dotfiles directory
+    cd "$dotfiles_dir" || { _e "Cannot change directory to $dotfiles_dir"; return 1; }
+
+    if [[ "$(uname)" == "Darwin" ]]; then
+        install_mac_config
+    elif [[ "$(uname)" == "Linux" ]]; then
+        install_linux_config
+    else
+        _e "Unsupported OS!"
+        return 1
+    fi
+
+    _s "🎉 dotfiles installed correctly! 🎉"
+    _s "Please, restart your terminal to see the changes"
 }
 
-_w "  ┌────────────────────────────────────┐"
-_w "~ │ 🚀 ${green}dotfiles${normal} installer! │ ~"
-_w "  └────────────────────────────────────┘"
-_w
-_q "The dotfiles will installed in (default ~/.dotfiles)" 
+# Function to install dotfiles and configurations for macOS
+install_mac_config() {
+    _s "Mac detected. Using Mac config..."
 
-cd ~/.dotfiles
+    #Make bash the default shell
+    chsh -s /bin/bash
+
+    # SETUP
+    # Install Homebrew if not installed
+    if ! command_exists brew; then
+        _s "Installing Homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    _s "Upgrading Homebrew"
+    brew update && brew upgrade
+
+    # INSTALL BREW APPS
+    _s "Installing brew apps"
+    touch ~/.hushlogin
+    brew bundle --file="$dotfiles_dir/mac/brew/Brewfile" --force
+
+    # INSTALL PYTHON MODULES
+    _s "Installing python modules"
+    pip install -r "$dotfiles_dir/langs/python/pip.txt" || _e "Error installing python modules"
+
+    _s "Installing mac cleaner"
+    curl -o ~/Downloads/AppCleaner.dmg "https://www.freemacsoft.net/downloads/AppCleaner_3.5.zip"
+
+    gh auth login
+
+      _s "Installing private font"
+    # Verificar si el directorio de fuentes no existe. Si no existe, crearlo.
+    if [ ! -d "$fonts_dir" ]; then
+        mkdir -p "$fonts_dir"
+    fi
+    # Verificar si el directorio del repositorio no existe. Si no existe, crearlo.
+    if [ ! -d "$repo_dir" ]; then
+        mkdir -p "$repo_dir"
+    fi
+    gh repo clone erickvasm/font "$repo_dir" || _e "Error cloning private font repository"
+    curl -LJO https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
+    mv "Hack.zip" "$fonts_dir/Hack.zip" || _e "Error moving Hack.zip to $fonts_dir"
+    unzip -o "$fonts_dir/Hack.zip" -d "$fonts_dir/Hack" || _e "Error extracting Hack.zip"
+    rm "$fonts_dir/Hack.zip" || _e "Error removing Hack.zip"
+
+    _s "Setup mac config"
+    chmod +x "$dotfiles_dir/os/mac/macos.sh"
+    "$dotfiles_dir/os/mac/macos.sh" || _e "Error setting up mac config"
+
+    _s "Setup the symlinks"
+    # Fix potential Windows line endings
+    sed -i 's/\r$//' "$dotfiles_dir/symlinks/symlink-mac.sh"
+    chmod +x "$dotfiles_dir/symlinks/symlink-mac.sh"
+    "$dotfiles_dir/symlinks/symlink-mac.sh" || _e "Error setting up symlinks"
+    
+
+    # CLEANUP
+    brew cleanup || _e "Error cleaning up"
+
+    _a "Remember to install the following manually:"
+    _a " - Iterm2 config"
+    _a " - Rectangle"
+}
 
 
-if [[ `uname` == "Darwin"   ]]; then
-	_a "Mac detected. Using Mac config..."
-  	#Make bash the default shell
-	chsh -s /bin/bash
+# Function to install dotfiles and configurations for Linux
+install_linux_config() {
+    _s "Linux detected. Using Linux config..."
 
-	# SETUP
-	which -s brew
-	if [[ $? != 0 ]] ; then
-		_a "Installing Homebrew"
-		/usr/bin/bash -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	fi
-	_a "Upgrading Homebrew"
-	brew upgrade
-	_a "Updating Homebrew"
-	brew update 
+    # Updating apt and upgrading packages
+    sudo apt-get update && sudo apt-get upgrade -y
+    sudo apt-get install -y --fix-broken
+    sudo rm /etc/apt/preferences.d/nosnap.pref
 
-	# INSTALL BREW APPS
-	_a "Installing brew apps"
-	touch ~/.hushlogin
-	brew bundle --file=~/.dotfiles/mac/brew/Brewfile --force
+    # Installing apt apps
+    _s "Installing apt apps"
+    sudo apt-get -y install $(<"$dotfiles_dir/os/linux/apt/apt-installed.txt") || { sudo apt-get install -f -y; sudo apt-get -y install $(<"$dotfiles_dir/os/linux/apt/apt-installed.txt"); } || _e "Error installing apt apps"
 
-	# INSTALL node modules
-	_a "Installing node modules"
-	xargs -I_ npm install -g "_" < "~/.dotfiles/langs/javascript/global_module.txt"
+    # Installing snap app
+    _s "Installing snap app"
+    xargs -L 1 sudo snap install < "$dotfiles_dir/os/linux/snap/snap-installed.txt"
 
-	# INSTALL PYTHON MODULES
-	_a "Installing python modules"
-	pip install -r "~/.dotfiles/langs/python/pip.txt"
+    # Installing chrome
+    _s "Installing Google Chrome"
+    wget -O ~/Downloads/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb || { sudo apt-get install -f -y; sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb; } || _e "Error installing Google Chrome"
 
-	a_ "Installing mac cleaner"
-	curl -o ~/Downloads/AppCleaner.dmg "https://www.freemacsoft.net/downloads/AppCleaner_3.5.zip"
+    # INSTALL PYTHON MODULES
+    _s "Installing python modules"
+    pip3 install -r "$dotfiles_dir/langs/python/pip.txt" || _e "Error installing python modules"
 
-	a_ "Installing Nerdfonts"
-	cd ~/Downloads/
-	curl -LJO https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
-	unzip Hack.zip -d Hack
+    _s "Installing node"
+    curl https://get.volta.sh | bash
+    source ~/.bashrc
+    volta install node || _e "Error installing node"
+   
+    # INSTALL node modules
+    _s "Installing node modules"
+    xargs -I_ npm install -g "_" < "$dotfiles_dir/langs/javascript/global_module.txt" || _e "Error installing node modules"
 
-	_s "Visual Studio code symlink.sh"
-	ln -s ~/.dotfiles/editors/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-	ln -s ~/.dotfiles/editors/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-	ln -s ~/.dotfiles/editors/vscode/snippets/ ~/Library/Application\ Support/Code/User/snippets
+    _s "Delete bashrc"
+    if [ -f ~/.bashrc ]; then
+       rm ~/.bashrc || _e "Error delete bashrc"
+    fi    
 
-	_a "Bash aliases"
-	ln -s ~/.dotfiles/os/mac/.bash_aliases ~/.bash_aliases
+    _s "Setup the symlinks"
+   sed -i 's/\r$//' "$dotfiles_dir/symlinks/symlink-mac.sh"
+   chmod +x "$dotfiles_dir/symlinks/symlink-linux.sh"
+   "$dotfiles_dir/symlinks/symlink-linux.sh" || _e "Error setting up symlinks"
 
-	_a "Installing private font"
-	mkdir ~/.fonts
-	cd ~/.fonts && git clone git@github.com:erickvasm/font.git
+    # Descargar e instalar Neovim
+    _e "Installing neovim"
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz && mv nvim-linux64.tar.gz ~/Downloads/
+    sudo rm -rf /opt/nvim
+    sudo tar -C /opt -xvzf ~/Downloads/nvim-linux64.tar.gz || _e "Error extracting Neovim"
+    if [ -d /opt/nvim-linux64 ]; then
+        # Agregar Neovim al PATH
+        export PATH="$PATH:/opt/nvim-linux64/bin"
+    else
+        _e "Extraction failed or nvim-linux64 directory not found"
+        exit 1
+    fi
 
-	_a "Setup mac config"
-	chmod +x ~/.dotfiles/os/mac/macos.sh
-	~/.dotfiles/os/mac/macos.sh
+    _s "Installing Github CLI"
+    type -p curl >/dev/null || sudo apt update && sudo apt install curl -y
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt update \
+    && sudo apt install gh -y || _e "Error installing Github CLI"
 
-	a_ "Setup the symlinks"
-    chmod +x ./symlinks/symlink.sh # no se puede ejecutar
-    ./symlinks/symlink.sh
+    gh auth login
 
-	# CLEANUP
-	brew cleanup
+    _s "Installing zsh config"
+    if [ -f ~/.zshrc ]; then
+        mv ~/.zshrc ~/.zshrc.bak || _e "Error backing up existing .zshrc"
+    fi
 
-	_a "Remember to install the following manually:"
-	_a " - Iterm2 config"
-	_a "Rectangle"
-fi
+     _s "Installing private font"
+   # Verificar si el directorio de fuentes no existe. Si no existe, crearlo.
+    if [ ! -d "$fonts_dir" ]; then
+        mkdir -p "$fonts_dir"
+    fi
+    # Verificar si el directorio del repositorio no existe. Si no existe, crearlo.
+    if [ ! -d "$repo_dir" ]; then
+        mkdir -p "$repo_dir"
+    fi
 
-if [[ `uname` == "Linux"   ]]; then
-  _a "Linux detected. Using Linux config..."
+    gh repo clone erickvasm/font "$repo_dir" || _e "Error cloning private font repository"
+    curl -LJO https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip
+    mv "Hack.zip" "$fonts_dir/Hack.zip" || _e "Error moving Hack.zip to $fonts_dir"
+    unzip -o "$fonts_dir/Hack.zip" -d "$fonts_dir/Hack" || _e "Error extracting Hack.zip"
+    rm "$fonts_dir/Hack.zip" || _e "Error removing Hack.zip"
 
-	_a "Updating apt and upgrading packages"
-	sudo apt-get update
-	sudo apt-get upgrade
-	sudo apt autoremove
-	sudo apt-add repository universe
+    # Make zsh the default shell
+    _s "Changing default shell to zsh"
+    chsh -s $(which zsh)
 
-	_a "Installing apt apps"
-	xargs sudo apt-get -y install < ~/.dotfiles/os/linux/apt/apt-installed.txt
+    _s "Installing zim"
+    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh || _e "Error installing zim"
 
-	_a "Installing snap apps"
-	xargs sudo snap install < ~/.dotfiles/os/linux/snap/snap-installed.txt
+    zimfw install
+}
 
-	_a "Installing other apps"
-	sudo snap install code --classic
-	sudo snap install intellij-idea-community --classic
 
-	_a "Installing chrome"
-	cd ~/Downloads
-	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads
-	sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-	# INSTALL node modules - TODO: NO FUNCIONA
-	_a "Installing node modules"
-	xargs -I_ npm install -g "_" < "~/.dotfiles/langs/javascript/global_module.txt"
+# Call the main function
+install_dotfiles
 
-	# INSTALL PYTHON MODULES - NO FUNCIONA
-	_a "Installing python modules"
-	pip install -r "~/.dotfiles/langs/python/pip.txt"
 
-	_a "Installing speedTest"
-	curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-	sudo apt-get install speedtest
-
-	_a "Installing node"
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-	source ~/.bashrc
-	nvm install --lts
-
-	_a "Installing neovim" # no funciona
-	cd ~/Dowloads
-	sudo add-apt-repository universe
-	sudo apt install libfuse2
-	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-	chmod u+x nvim.appimage
-	./nvim.appimage
-	sudo mv squashfs-root /
-	sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
-	nvim
-
-	_a "Installing Github CLI"
-	type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
-	curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-	&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-	&& sudo apt update \
-	&& sudo apt install gh -y
-	sudo apt update
-	sudo apt install gh
-
-	_a "Installing Nerdfonts"
-	cd ~/Downloads
-	curl -LJO https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip -o ~/Downloads/Hack.zip
-	unzip Hack.zip -d Hack
-
-	_a "Installing plugins"
-	git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlightin
-
-	_a "Installing zsh config"
-	if [ -f ~/.zshrc ]; then
-		rm ~/.zshrc
-	fi
-	ln -s ~/.dotfiles/shell/zsh/.zshrc ~/.zshrc
-
-	_a "Bash aliases"
-	ln -s ~/.dotfiles/os/linux/.bash_aliases ~/.bash_aliases
-
-	_a "Installing node for zsh"\
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-	source ~/.zshrc
-	nvm install --lts
-
-	_a "Installing private font"
-	mkdir ~/.fonts
-	cd ~/.fonts && git clone git@github.com:erickvasm/font.git
-
-	_a "Installing Terminal Theme"
-	mkdir ~/.terminal-themes
-	cd ~/.terminal-themes
-	sudo apt-get install dconf-cli
-	git clone https://github.com/dracula/gnome-terminal
-	cd gnome-terminal
-	./install.sh
-	
-	_a "Xmodmap"
-	ln -s ~/.dotfiles/os/linux/.Xmodmap ~/.Xmodmap
-
-	a_ "Setup the symlinks"
-    chmod +x ./symlinks/symlink.sh # no se puede ejecutar
-    ./symlinks/symlink.sh
-
-	_a "Installing zsh"
-	sudo apt install zsh
-
-	_a "Installing oh-my-zsh"
-	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-	_a "Make zsh the default shell"
-	chsh -s $(which zsh)  	
-fi
-
-_a "🎉 dotfiles installed correctly! 🎉"
-_a "Please, restart your terminal to see the changes"

@@ -1,8 +1,11 @@
 git
+zsh
+snapd
 openjdk-21-jdk
 python3
-pip
+python3-pip
 fzf
 exa
 gnome-tweaks
+gnome-shell-extension-manager
 curl

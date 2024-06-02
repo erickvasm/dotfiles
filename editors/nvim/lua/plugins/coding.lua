@@ -19,7 +19,6 @@ return {
         vim.list_extend(opts.ensure_installed, {
           "comment",
           "diff",
-          "java",
           "typescript",
           "dockerfile",
           "dot",

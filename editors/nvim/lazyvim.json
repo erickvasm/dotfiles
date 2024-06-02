@@ -2,13 +2,10 @@
   "extras": [
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.ui.edgy",
-    "plugins.extras.editor.copilot-chat",
-    "plugins.extras.editor.copilot-vim",
     "plugins.extras.editor.edgy",
     "plugins.extras.editor.git-blame",
     "plugins.extras.editor.git-conflict",
     "plugins.extras.editor.lualine",
-    "plugins.extras.lang.java",
     "plugins.extras.lang.nodejs",
     "plugins.extras.util.diffview",
     "plugins.extras.util.gitui",
@@ -20,3 +17,4 @@
   },
   "version": 2
 }
+

@@ -1,8 +1,5 @@
-postman
-docker
 onlyoffice-desktopeditors
 vlc
-starship
-gnome-extension-manager
 diff-so-fancy
-bitwarden
+code --classic
+intellij-idea-ultimate --classic
