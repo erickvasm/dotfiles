@@ -133,6 +133,10 @@ install_linux_config() {
     wget -O ~/Downloads/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb || { sudo apt-get install -f -y; sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb; } || _e "Error installing Google Chrome"
 
+    # Hyper.js
+    _s "Installing hyper.js"
+   wget -O ~/Downloads/hyper.deb https://releases.hyper.is/download/deb && sudo dpkg -i ~/Downloads/hyper.deb || { sudo apt-get install -f -y; sudo dpkg -i ~/Downloads/hyper.deb; } || echo "Error installing Hyper"
+
     # INSTALL PYTHON MODULES
     _s "Installing python modules"
     pip3 install -r "$dotfiles_dir/langs/python/pip.txt" || _e "Error installing python modules"
