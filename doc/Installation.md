@@ -5,13 +5,11 @@
 - Log in iCloud and Sync all Keychain passwords
 - Update Mac
 - Restore `~/.ssh` from iCloud
-- Downland DankMono Font (private repository)
 - Execute the dotfiles installer
 - Login in Mail and sync all accounts
 - Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
 - Go to `Preferences/General` and enable font smoothing (if retina display)
 - Open safari and go to `Tabs` and set the tab layout to `Compact`
-- Create a pwa for chatGPT
 - Open Rectangle and import the configuration from `~/.dotfiles/mac/Rectangle`
   - Go to `Settings/General/Login items/` and add Rectangle
 - Open JetBrains Toolbox
@@ -56,9 +54,6 @@ The same as MacOs but without the iCloud part
 
 ## Windows computer setup
 
-- Clone this repository to your home directory:
-  https://github.com/erickvasm/dotfiles.git
-
 - Run the install script for windows in administrator mode:
 
 ```bash
@@ -76,20 +71,14 @@ or
 PS C:\path\to\script> Set-ExecutionPolicy Unrestricted
 ```
 
-- Run the install script for keyssh (right now I just use the github cli)
-
-```powershell
-cd .dotfiles/scripts
-./keyssh.ps1
-```
-
 - I use the icloud plugin to synchronize passwords.
 - Clean the bar and leave it with only the windows icon and the search icon
   - I leave only the browser, explorer, store and terminal icon
 - Update Microsoft Edge
   - login in Microsoft Edge
   - Sync all accounts
-- Invert the scroll direction and the keymap (like mac) (TODO)
+- Invert the scroll direction and the keymap (like mac)
+  - [References](https://superuser.com/questions/543971/how-to-change-the-windows-alttab-hotkey-to-something-else/1588228#1588228)
 
 ## Setup lid of laptop
 

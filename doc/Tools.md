@@ -95,6 +95,4 @@ If you want to deactivate the imports toggle, go to configuration, code folding
 
 ## Others app
 
-- DevToysMac
-- Numi: text calculator
 - OrbStack: alternative to docker desktop
