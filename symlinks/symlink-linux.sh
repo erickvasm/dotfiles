@@ -11,3 +11,5 @@ ln -s ~/.dotfiles/editors/nvim ~/.config/nvim
 ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
 ln -s ~/.dotfiles//os/linux/.Xmodmap ~/.Xmodmap
+ln -s ~/.dotfiles/editors/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -s ~/.dotfiles/editors/vscode/settings.json ~/.config/Code/User/settings.json

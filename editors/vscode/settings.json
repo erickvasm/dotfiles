@@ -13,7 +13,7 @@
   "workbench.editorAssociations": {
     "*.plist": "default"
   },
-  "workbench.layoutControl.enabled": false,
+  "workbench.layoutControl.enabled": true,
   "workbench.list.smoothScrolling": true,
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 20,
