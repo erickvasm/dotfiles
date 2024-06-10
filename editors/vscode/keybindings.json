@@ -22,6 +22,11 @@
     "when": "sideBarFocus"  
   },
   {
+  "key": "ctrl+2",
+  "command": "workbench.view.extensions",
+  "when": "viewContainer.workbench.view.extensions.enabled"
+  },
+  {
     "key": "ctrl+shift+n",
     "command": "explorer.newFile",
     "when": "explorerViewletFocus"
