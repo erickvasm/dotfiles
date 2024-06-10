@@ -9,11 +9,11 @@
   "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
   "workbench.colorTheme": "Codely Dark",
   "workbench.preferredDarkColorTheme": "Codely Dark",
-  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.preferredLightColorTheme": "Default Light Modern",
   "workbench.editorAssociations": {
     "*.plist": "default"
   },
-  "workbench.layoutControl.enabled": true,
+  "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 20,
@@ -66,5 +66,5 @@
   "apc.font.family": "DankMono Nerd Font",
   "workbench.statusBar.visible": false,
   "window.nativeTabs": true,
-  "workbench.activityBar.location": "hidden"
+  "cSpell.language": "en,es"
 }
