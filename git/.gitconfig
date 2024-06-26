@@ -37,6 +37,7 @@
 	co = checkout
 	pr = pull --stat --rebase origin
 	pf = push --force origin
+	sq = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
 	dt = diff-tree -p @{1}
 	lss = log --show-signature
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
