@@ -54,8 +54,26 @@ The same as MacOs but without the iCloud part
 
 ## Windows computer setup
 
-- Run the install script for windows in administrator mode:
+- Uninstall OneDrive
+- I use the icloud plugin to synchronize passwords.
+- Clean the bar and leave it with only the windows icon and the search icon and remove unnecessary apps
+  - I leave only the browser, explorer, store and terminal icon
+- Update Microsoft Edge
+  - login in Microsoft Edge
+  - Sync all accounts
+- Invert the scroll direction and the keymap (like mac)
+  - [References](https://superuser.com/questions/543971/how-to-change-the-windows-alttab-hotkey-to-something-else/1588228#1588228)
+- Install [Jetbrains](https://www.jetbrains.com/toolbox-app/)
 
+---
+1. First you must install the app installer in the store [winget](https://apps.microsoft.com/detail/9nblggh4nns1?rtc=1&hl=es-cr&gl=CR). 
+2. Then install winget
+3. Next would be to install git cli
+  * `winget install --id GitHub.cli`
+4. Then clone the repository and rename it .dotfiles
+6. The next thing will be to download powershell and windows terminal
+
+Run as a admin:
 ```bash
 cd .dotfiles/os/windows
 ./windows.ps1
@@ -71,14 +89,8 @@ or
 PS C:\path\to\script> Set-ExecutionPolicy Unrestricted
 ```
 
-- I use the icloud plugin to synchronize passwords.
-- Clean the bar and leave it with only the windows icon and the search icon
-  - I leave only the browser, explorer, store and terminal icon
-- Update Microsoft Edge
-  - login in Microsoft Edge
-  - Sync all accounts
-- Invert the scroll direction and the keymap (like mac)
-  - [References](https://superuser.com/questions/543971/how-to-change-the-windows-alttab-hotkey-to-something-else/1588228#1588228)
+- Run symlink.ps1 as manager
+- Import Terminal config
 
 ## Setup lid of laptop
 

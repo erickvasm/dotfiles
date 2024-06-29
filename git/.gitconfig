@@ -14,19 +14,17 @@
 	verbose = true
 [core]
 	autocrlf = false
-	editor = /usr/bin/vim
 	eol = lf
 	excludesfile = ~/.gitignore_global
 	ignorecase = false
+	editor = vim
 [i18n]
 	logOutputEncoding = UTF-8
 [log]
 	showSignature = true
 [pull]
 	ff = only
-	rebase = true
-[sequence]
-	editor = /usr/bin/vim
+	rebase = true 
 [user]
 	email = erickmurillo0807@gmail.com
 	name = Erick Vasquez
@@ -42,6 +40,7 @@
               git commit --edit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1} | head -n 1)\" && \
               git push --force origin $(git symbolic-ref --short HEAD); \
       	      }; f"
+  acp = "!f() { git add -A && git commit -m \"$1\" && git push origin $(git rev-parse --abbrev-ref HEAD); }; f"
 	df = "!git -c color.status=always status --short | fzf --height 100% --ansi --preview '(git diff HEAD --color=always -- {-1} | sed 1,4d)' --preview-window right:65% | cut -c4- | sed 's/.* -> //' | tr -d '\n' | pbcopy"
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ap = add --patch
