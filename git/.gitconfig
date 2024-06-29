@@ -26,7 +26,7 @@
 	ff = only
 	rebase = true
 [sequence]
-	editor = /usr/bin/vi
+	editor = /usr/bin/vim
 [user]
 	email = erickmurillo0807@gmail.com
 	name = Erick Vasquez
@@ -42,22 +42,9 @@
               git commit --edit -m \"$(git log --format=%B --reverse HEAD..HEAD@{1} | head -n 1)\" && \
               git push --force origin $(git symbolic-ref --short HEAD); \
       	      }; f"
-	dt = diff-tree -p @{1}
-	lss = log --show-signature
-	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-	unstage = reset HEAD --
-	last = log --show-signature -1 HEAD
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	who = shortlog -s --
-	whois = !sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\\n\" --author=\"Erick Vasquez\"' -
-	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-	where = describe --tags
-	wd = diff --word-diff
-	lol = log --oneline --decorate --graph
+	df = "!git -c color.status=always status --short | fzf --height 100% --ansi --preview '(git diff HEAD --color=always -- {-1} | sed 1,4d)' --preview-window right:65% | cut -c4- | sed 's/.* -> //' | tr -d '\n' | pbcopy"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ap = add --patch
-	clear = reset --hard
-	changes = log --oneline --decorate --graph @{1}..
-	merges = log --oneline --merges
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
