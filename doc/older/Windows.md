@@ -1,6 +1,6 @@
-# Pasos PowerShell
+# Pasos Manuales
  
-1. Instalar siguiientes paquetes: 
+1. Instalar siguientes paquetes: 
 
 ```sh
   Install-Module posh-git -Scope CurrentUser
