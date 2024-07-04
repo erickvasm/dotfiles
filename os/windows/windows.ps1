@@ -39,6 +39,7 @@ foreach ($app in $appsScoop) {
 }
 
 nvm install node
+nvm use node
 
 Write-Host
 
