@@ -1,5 +1,6 @@
 Invoke-Expression (&starship init powershell)
 Import-Module -Name Terminal-Icons
+Set-PSReadLineOption -PredictionSource History
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 function update {
    winget upgrade -h --all
