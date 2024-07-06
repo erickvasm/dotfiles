@@ -10,4 +10,3 @@ vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-v>", '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-z>", "u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-x>", '"+x', { noremap = true, silent = true })
-
