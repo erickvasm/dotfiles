@@ -45,6 +45,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.hideCursorInOverviewRuler": true,
+  "editor.foldingImportsByDefault": true,
   "explorer.compactFolders": false,
   "[typescript]": {
     "editor.formatOnSave": false,
