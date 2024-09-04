@@ -50,7 +50,7 @@ fi
 
 # Ejecutar el comando caffeinate con el tiempo calculado en segundo plano
 echo "Manteniendo la Mac despierta durante $tiempo_segundos segundos..."
-caffeinate -t $tiempo_segundos &
+caffeinate -ids -t $tiempo_segundos &
 
 # Guardar el PID del proceso
 pid=$!
