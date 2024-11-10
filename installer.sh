@@ -76,6 +76,9 @@ install_mac_config() {
 
     gh auth login
 
+    _s "Developer folder"
+    mkdir Developer
+
       _s "Installing private font"
     # Verificar si el directorio de fuentes no existe. Si no existe, crearlo.
     if [ ! -d "$fonts_dir" ]; then
