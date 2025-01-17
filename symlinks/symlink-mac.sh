@@ -10,4 +10,3 @@ ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
 ln -s ~/.dotfiles/editors/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 ln -s ~/.dotfiles/editors/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s ~/.dotfiles/editors/vscode/snippets/ ~/Library/Application\ Support/Code/User/snippets

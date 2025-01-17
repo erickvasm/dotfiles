@@ -60,10 +60,10 @@
   "apc.header": {
     "height": 36
   },
-  "apc.font.family": "DankMono Nerd Font",
+  "apc.font.family": "'DankMono Nerd Font', 'Hack Mono'",
+  "apc.monospace.font.family": "'DankMono Nerd Font', 'Hack Mono'",
   "workbench.statusBar.visible": false,
   "window.nativeTabs": true,
-  "cSpell.language": "en,es",
   "window.menuBarVisibility": "compact",
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
