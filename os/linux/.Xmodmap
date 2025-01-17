@@ -1,3 +1,26 @@
-! PgUp and PgDn as left and right
-keycode 112 = Left
-keycode 117 = Right
+! Remap keys to emulate macOS keyboard layout
+
+! Map Alt (left) to Command (left)
+keycode 64 = Super_L
+clear mod1
+add mod4 = Super_L
+
+! Map Alt (right) to Command (right)
+keycode 108 = Super_R
+add mod4 = Super_R
+
+! Map Windows (Super) to Option (Alt)
+keycode 133 = Alt_L
+keycode 134 = Alt_R
+clear mod4
+add mod1 = Alt_L Alt_R
+
+! Ensure Control keys remain mapped as expected
+keycode 37 = Control_L
+keycode 105 = Control_R
+clear control
+add control = Control_L Control_R
+
+! Map Caps Lock to Escape
+remove Lock = Caps_Lock
+keysym Caps_Lock = Escape

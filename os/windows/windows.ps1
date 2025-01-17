@@ -8,6 +8,8 @@ Write-Host
 Write-Host "Installing GitHub CLI"
 winget install --id GitHub.cli
 
+gh auth login
+
 Write-Host "Installing Choco"
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
@@ -17,7 +19,6 @@ Write-Host "Installing starship"
 choco install starship
 
 # Install Scoop
-# Check if Scoop is already installed
 if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
@@ -26,20 +27,18 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 Write-Host
 
 # Install Scoop
-# Since running installer as admin is disabled, use a workaround to install Scoop
 Write-Host "Installing Scoop"
 iex "& {irm get.scoop.sh} -RunAsAdmin"
 
 # Install Scoop apps
 Write-Host "Installing Scoop apps"
-$appsScoop = @("neovim", "gcc", "nvm", "fzf")
+$appsScoop = @("neovim", "gcc", "volta", "fzf")
 foreach ($app in $appsScoop) {
     scoop install $app
     Write-Host "$app has been installed successfully."
 }
 
-nvm install node
-nvm use node
+volta install node
 
 Write-Host
 
@@ -47,7 +46,6 @@ Write-Host
 $apps = @("git", "vscode", 
             "java", "python3",
             "microsoft.powertoys",
-            "exa", 
             "google-chrome", "dbeaver")
 
 # Iterate over the list of apps and install each one
@@ -55,6 +53,8 @@ foreach ($app in $apps) {
     winget install -e $app
     Write-Host "$app has been installed successfully."
 }
+
+winget install eza-community.eza
 
 Write-Host
 
@@ -82,4 +82,4 @@ Write-Host
 
 Write-Host "Installing private fonts"
 mkdir ~/.fonts
-cd ~/.fonts && git clone git@github.com:erickvasm/font.git
+cd ~/.fonts && gh repo clone erickvasm/DankMono

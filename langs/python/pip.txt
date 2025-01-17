@@ -1,5 +1,0 @@
-ansible-core==2.15.7
-cffi==1.16.0
-cryptography==41.0.7
-pynvim==0.4.3
-six==1.16.0

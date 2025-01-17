@@ -1,31 +1,27 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.codeium",
+    "lazyvim.plugins.extras.ai.supermaven",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.mini-move",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.astro",
     "lazyvim.plugins.extras.lang.docker",
-    "lazyvim.plugins.extras.lang.java",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.python",
-    "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.tailwind",
     "lazyvim.plugins.extras.lang.typescript",
     "lazyvim.plugins.extras.linting.eslint",
-    "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.alpha",
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.vscode",
     "plugins.extras.editor.edgy",
-    "plugins.extras.editor.lualine",
-    "plugins.extras.code.avante"
+    "plugins.extras.editor.lualine"
   ],
   "news": {
-    "NEWS.md": "2123"
+    "NEWS.md": "10960"
   },
-  "version": 2
+  "version": 7
 }

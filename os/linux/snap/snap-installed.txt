@@ -1,5 +1,0 @@
-onlyoffice-desktopeditors
-vlc
-diff-so-fancy
-code --classic
-intellij-idea-ultimate --classic

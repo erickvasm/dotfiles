@@ -1,5 +1,5 @@
 <h1 align="center">
-  Dotfiles 
+  Dotfiles
   <img src="https://blog.zachinachshon.com/assets/images/localdev/dotfiles/dotfiles-blog-220x230.png" alt="File" width="50" height="50"
 </h1>
 
@@ -42,7 +42,7 @@ The following tools are included in this repository:
 - **powershell config**: by _[devaslife](https://github.com/craftzdog)_
 - **scripts**
 
-`NOTE: VSCode configurations are included so that they are versioned and if someone wants to have the same configuration. Although this is not necessary `
+`NOTE: VSCode configurations are included so that they are versioned and if someone wants to have the same configuration. Although this is not necessary`
 
 ## Windows
 

@@ -9,17 +9,14 @@
   "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
   "workbench.colorTheme": "Codely Dark",
   "workbench.preferredDarkColorTheme": "Codely Dark",
-  "workbench.preferredLightColorTheme": "Default Light Modern",
+  "workbench.preferredLightColorTheme": "Base16 Dark Atelier Lakeside",
   "workbench.editorAssociations": {
     "*.plist": "default"
   },
-  "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 20,
   "workbench.list.horizontalScrolling": true,
-  "window.menuBarVisibility": "compact",
-  "window.commandCenter": false,
   "files.associations": {
     "*.strings": "plist"
   },
@@ -45,7 +42,6 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.hideCursorInOverviewRuler": true,
-  "editor.foldingImportsByDefault": true,
   "explorer.compactFolders": false,
   "[typescript]": {
     "editor.formatOnSave": false,
@@ -67,5 +63,9 @@
   "apc.font.family": "DankMono Nerd Font",
   "workbench.statusBar.visible": false,
   "window.nativeTabs": true,
-  "cSpell.language": "en,es"
+  "cSpell.language": "en,es",
+  "window.menuBarVisibility": "compact",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "editor.foldingImportsByDefault": true
 }
