@@ -76,9 +76,6 @@ fi
 
 source ${ZIM_HOME}/init.zsh
 
-# fzf
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
 # Starship
 command -v starship > /dev/null && eval "$(starship init zsh)"
 

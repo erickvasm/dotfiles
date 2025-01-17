@@ -2,5 +2,6 @@ zmodule zimfw/completion
 zmodule zsh-users/zsh-completions --fpath src
 zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-syntax-highlighting
+zmodule zimfw/fzf
 zmodule Aloxaf/fzf-tab
 zmodule zimfw/git-info
