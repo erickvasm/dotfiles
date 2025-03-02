@@ -574,7 +574,7 @@
 	<key>Default Bookmark Guid</key>
 	<string>C447CF62-1048-4144-8B0B-D12A9F0E0AD5</string>
 	<key>DoubleClickPerformsSmartSelection</key>
-	<true/>
+	<false/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>HapticFeedbackForEsc</key>

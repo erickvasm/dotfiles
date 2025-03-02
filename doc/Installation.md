@@ -10,6 +10,7 @@
 - Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
 - Go to `Preferences/General` and enable font smoothing (if retina display)
 - Open safari and go to `Tabs` and set the tab layout to `Compact`
+- Download addGuard [Link](https://adguard-dns.io/en/public-dns.html)
 - Open Rectangle and import the configuration from `~/.dotfiles/mac/Rectangle`
   - Go to `Settings/General/Login items/` and add Rectangle
 - Open JetBrains Toolbox
@@ -22,8 +23,6 @@
 - Open VsCode
   - Sync settings
   - Install settings sync extension
-- Open Slack
-  - Login
 - Open iTerm2
   - Select load preferences from URL and use ~/.dotfiles/mac/iTerm. On the next prompt select "No" to not save the changes
   - Change the font and the theme
@@ -47,10 +46,9 @@ With the script `macos.sh` have the default configuration for a new mac, but you
 
 The same as MacOs but without the iCloud part
 
-- For setup ubuntu, you can read this article 
-[Ubuntu](https://medium.com/@erickvasm/ubuntu-setup-29323c81a258)
+- For setup ubuntu, you can read this article
+  [Ubuntu](https://medium.com/@erickvasm/ubuntu-setup-29323c81a258)
 - For manage the password I use Bitwarden
-
 
 ## Windows computer setup
 
@@ -66,14 +64,18 @@ The same as MacOs but without the iCloud part
 - Install [Jetbrains](https://www.jetbrains.com/toolbox-app/)
 
 ---
-1. First you must install the app installer in the store [winget](https://apps.microsoft.com/detail/9nblggh4nns1?rtc=1&hl=es-cr&gl=CR). 
+
+1. First you must install the app installer in the store [winget](https://apps.microsoft.com/detail/9nblggh4nns1?rtc=1&hl=es-cr&gl=CR).
 2. Then install winget
 3. Next would be to install git cli
-  * `winget install --id GitHub.cli`
+
+- `winget install --id GitHub.cli`
+
 4. Then clone the repository and rename it .dotfiles
-6. The next thing will be to download powershell and windows terminal
+5. The next thing will be to download powershell and windows terminal
 
 Run as a admin:
+
 ```bash
 cd .dotfiles/os/windows
 ./windows.ps1

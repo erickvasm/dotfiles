@@ -15,6 +15,7 @@ handbrakeCLI -i /path/to/input.mov -o /path/to/output.mp4 -e x264 -q 28 -r 15 -B
 How to active/deactivate dark reader in safari or other browser
 
 - Alt shift d
+- CTR D -> personalization
 
 ## fzf Commands
 
@@ -46,7 +47,7 @@ cmd , : to open settings in all apps
 
 ## iTerminal
 
-cmd + shift + I: write in all terminal sesion 
+cmd + shift + I: write in all terminal sesion
 
 ## InteliJ
 

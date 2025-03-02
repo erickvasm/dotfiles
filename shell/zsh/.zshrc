@@ -79,6 +79,10 @@ source ${ZIM_HOME}/init.zsh
 # Starship
 command -v starship > /dev/null && eval "$(starship init zsh)"
 
+# volta
+export PATH="$HOME/.volta/bin:$PATH"
+
+
 # PATH
 export PATH="$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
 
