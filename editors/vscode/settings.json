@@ -9,7 +9,7 @@
   "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
   "workbench.colorTheme": "Codely Dark",
   "workbench.preferredDarkColorTheme": "Codely Dark",
-  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.preferredLightColorTheme": "Quiet Light",
   "workbench.editorAssociations": {
     "*.plist": "default"
   },
@@ -68,5 +68,6 @@
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
   "editor.foldingImportsByDefault": true,
-  "workbench.activityBar.location": "hidden"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
