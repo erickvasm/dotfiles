@@ -17,6 +17,7 @@
     "lazyvim.plugins.extras.ui.alpha",
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.util.dot",
+    "lazyvim.plugins.extras.util.gitui",
     "lazyvim.plugins.extras.vscode",
     "plugins.extras.editor.edgy",
     "plugins.extras.editor.lualine"

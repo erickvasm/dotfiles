@@ -17,6 +17,7 @@
   - Login
   - Enable "generate shell scripts in ~/bin"
   - Install IntelliJ
+  - Install WebStorm
 - Open IntelliJ
   - Import from JetBrains account
   - Sync plugins
@@ -34,7 +35,7 @@ With the script `macos.sh` have the default configuration for a new mac, but you
 ./mac-setup.sh export /Users/graifin/.dotfiles/os/mac/settings
 ```
 
-## Remap Caps-Lock
+### Remap Caps-Lock
 
 - Remapping your Caps Lock key to keyboard.
   ![Remap Caps Lock](https://i.ibb.co/zXf6R65/Screenshot-2024-01-01-at-2-01-45-PM.png)
@@ -94,12 +95,12 @@ PS C:\path\to\script> Set-ExecutionPolicy Unrestricted
 - Run symlink.ps1 as manager
 - Import Terminal config
 
-## Setup lid of laptop
+### Setup lid of laptop
 
 - Go to `Preferences/Power` and set the lid to `Do nothing` when is closed
   ![Setup lid](https://i.ibb.co/YjnzHvX/Screenshot-2024-01-02-221952.png "Setup")
 
-## Important Directories to know
+### Important Directories to know
 
 ```powershell
 Users >  NameUser >  .config >  powershell

@@ -115,10 +115,6 @@ dotfiles_install_linux() {
     sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb || { sudo apt-get install -f -y; sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb; } || _e "Error installing Google Chrome"
 
     log_info "Instalando Otras apps..."
-    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
-    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-    sudo apt update
-    sudo apt install wezterm
 
     curl https://get.volta.sh | bash
     source ~/.bashrc

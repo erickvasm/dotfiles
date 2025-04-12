@@ -69,5 +69,6 @@
   "workbench.layoutControl.enabled": false,
   "editor.foldingImportsByDefault": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.activityBar.location": "hidden"
 }
