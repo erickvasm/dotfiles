@@ -105,10 +105,25 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-###############################################################################
-# TODOs and Customizations                                                    #
-###############################################################################
-###############################################################################
+# TODOs and Customizations
+defaults write -g NSUserKeyEquivalents '{
+  Bottom = "@^\\U2193";
+  "Bottom & Top" = "@^k";
+  "Bottom Left" = "@^}";
+  "Bottom Right" = "@^{";
+  Center = "@^c";
+  Fill = "@^f";
+  Left = "@^\\U2190";
+  "Left & Right" = "@^p";
+  "Paste and Match Style" = "@$v";
+  Quarters = "@^l";
+  Right = "@^\\U2192";
+  "Right & Left" = "@^o";
+  Top = "@^\\U2191";
+  "Top & Bottom" = "@^\\U00f1";
+  "Top Right" = "@^\\U00b4";
+  "Top left" = "@^+";
+}'
 
 # Apply Changes                                                               #
 ###############################################################################
