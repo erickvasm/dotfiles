@@ -11,12 +11,10 @@ brew "neovim"
 brew "node"
 brew "httpie"
 brew "tree"
-brew "ffmpeg"
 brew "starship"
 cask "orbstack"
 cask "dataflare"
 cask "google-chrome"
-cask "iterm2"
 cask "jetbrains-toolbox"
 cask "rectangle"
 cask "visual-studio-code"
@@ -26,4 +24,3 @@ mas "Dark Reader for Safar", id: 1438243180
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Gramarly", id: 1462114288
-mas "Matter", id: 1548677272

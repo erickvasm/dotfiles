@@ -1,111 +1,129 @@
-# Installation
+# Instalación
 
-## MacOs computer setup
+## Configuración de una computadora Mac
 
-- Log in iCloud and Sync all Keychain passwords
-- Update Mac
-- Restore `~/.ssh` from iCloud
-- Execute the dotfiles installer
-- Login in Mail and sync all accounts
-- Go to `Preferences/Desktop and Dock` and set the dock hiding to `Automatically`
-- Go to `Preferences/General` and enable font smoothing (if retina display)
-- Open safari and go to `Tabs` and set the tab layout to `Compact`
-- Download addGuard [Link](https://adguard-dns.io/en/public-dns.html)
-- Open Rectangle and import the configuration from `~/.dotfiles/mac/Rectangle`
-  - Go to `Settings/General/Login items/` and add Rectangle
-- Open JetBrains Toolbox
-  - Login
-  - Enable "generate shell scripts in ~/bin"
-  - Install IntelliJ
-  - Install WebStorm
-- Open IntelliJ
-  - Import from JetBrains account
-  - Sync plugins
-- Open VsCode
-  - Sync settings
-  - Install settings sync extension
-- Open iTerm2
-  - Select load preferences from URL and use ~/.dotfiles/mac/iTerm. On the next prompt select "No" to not save the changes
-  - Change the font and the theme
-- Restart
+* Inicia sesión en iCloud y sincroniza todas las contraseñas del Llavero (Keychain).
+* Actualiza el sistema operativo de Mac.
+* Restaura `~/.ssh` desde iCloud.
+* Ejecuta el instalador de dotfiles.
+* Inicia sesión en Mail y sincroniza todas las cuentas.
+* Ve a `Preferencias/Escritorio y Dock` y activa el ocultamiento automático del dock.
+* Ve a `Preferencias/General` y habilita el suavizado de fuentes (si tienes pantalla Retina).
+* Abre Safari, ve a `Pestañas` y establece el diseño de pestañas como `Compacto`.
+* Descarga AdGuard [Enlace](https://adguard-dns.io/en/public-dns.html).
 
-With the script `macos.sh` have the default configuration for a new mac, but you can use the script to export your own configuration.
+  * Ve a `Ajustes/General/Elementos de inicio de sesión/` y agrega Rectangle.
+* Abre JetBrains Toolbox:
+
+  * Inicia sesión.
+  * Habilita "generar scripts de shell en \~/bin".
+  * Instala IntelliJ.
+  * Instala WebStorm.
+* Abre IntelliJ:
+  * Importa desde la cuenta de JetBrains.
+  * Sincroniza los plugins.
+* Abre VS Code:
+  * Sincroniza la configuración.
+  * Instala la extensión “Settings Sync”.
+* Abre iTerm2:
+  * Selecciona “cargar preferencias desde URL” y usa `~/.dotfiles/mac/iTerm`. En el siguiente aviso, selecciona “No” para no guardar los cambios.
+  * Cambia la fuente y el tema.
+* Reinicia la computadora.
+
+Con el script `macos.sh` se configura una Mac nueva con valores predeterminados, pero también puedes usarlo para exportar tu propia configuración:
 
 ```bash
 ./mac-setup.sh export /Users/graifin/.dotfiles/os/mac/settings
 ```
 
-### Remap Caps-Lock
+### Reasignar la tecla Caps Lock
 
-- Remapping your Caps Lock key to keyboard.
-  ![Remap Caps Lock](https://i.ibb.co/zXf6R65/Screenshot-2024-01-01-at-2-01-45-PM.png)
+* Reasigna la tecla Caps Lock.
+  ![Reasignar Caps Lock](https://i.ibb.co/zXf6R65/Screenshot-2024-01-01-at-2-01-45-PM.png)
 
-- Remapping `Paste and Match Style` to `Cmd + Shift + V`
-  ![Remap Paste and Match Style](https://i.ibb.co/XbNSHCt/Screenshot-2024-01-06-at-8-53-52-PM.png)
+* Reasigna `Pegar y coincidir estilo` a `Cmd + Shift + V`.
+  ![Reasignar Pegado](https://i.ibb.co/XbNSHCt/Screenshot-2024-01-06-at-8-53-52-PM.png)
 
-## Linux computer setup
-
-The same as MacOs but without the iCloud part
-
-- For setup ubuntu, you can read this article
-  [Ubuntu](https://medium.com/@erickvasm/ubuntu-setup-29323c81a258)
-- For manage the password I use Bitwarden
-
-## Windows computer setup
-
-- Uninstall OneDrive
-- I use the icloud plugin to synchronize passwords.
-- Clean the bar and leave it with only the windows icon and the search icon and remove unnecessary apps
-  - I leave only the browser, explorer, store and terminal icon
-- Update Microsoft Edge
-  - login in Microsoft Edge
-  - Sync all accounts
-- Invert the scroll direction and the keymap (like mac)
-  - [References](https://superuser.com/questions/543971/how-to-change-the-windows-alttab-hotkey-to-something-else/1588228#1588228)
-- Install [Jetbrains](https://www.jetbrains.com/toolbox-app/)
+* Todas las teclas para windows manager.
+![Reasignar Teclas](https://i.ibb.co/C3F3sP6N/Screenshot-2025-05-09-at-21-40-16.png)
 
 ---
 
-1. First you must install the app installer in the store [winget](https://apps.microsoft.com/detail/9nblggh4nns1?rtc=1&hl=es-cr&gl=CR).
-2. Then install winget
-3. Next would be to install git cli
+## Configuración de una computadora Linux
 
-- `winget install --id GitHub.cli`
+Es igual que en MacOS pero sin la parte de iCloud.
 
-4. Then clone the repository and rename it .dotfiles
-5. The next thing will be to download powershell and windows terminal
+* Para configurar Ubuntu, puedes leer este artículo:
+  [Ubuntu](https://medium.com/@erickvasm/ubuntu-setup-29323c81a258)
+* Para gestionar las contraseñas uso **Bitwarden**.
 
-Run as a admin:
+---
+
+## Configuración de una computadora con Windows
+
+* Desinstala OneDrive.
+* Uso el plugin de iCloud para sincronizar contraseñas.
+* Limpia la barra de tareas dejando solo el icono de Windows y el de búsqueda, y elimina apps innecesarias.
+
+  * Dejo solo los iconos del navegador, explorador, tienda y terminal.
+* Actualiza Microsoft Edge:
+
+  * Inicia sesión en Microsoft Edge.
+  * Sincroniza todas las cuentas.
+* Invierte la dirección del scroll y el mapeo de teclas (como en Mac).
+
+  * [Referencias](https://superuser.com/questions/543971/how-to-change-the-windows-alttab-hotkey-to-something-else/1588228#1588228)
+* Instala [JetBrains](https://www.jetbrains.com/toolbox-app/)
+
+---
+
+1. Primero debes instalar el instalador de apps en la tienda [winget](https://apps.microsoft.com/detail/9nblggh4nns1?rtc=1&hl=es-cr&gl=CR).
+2. Luego instala `winget`.
+3. Después instala la CLI de Git:
+
+```bash
+winget install --id GitHub.cli
+```
+
+4. Luego clona el repositorio y renómbralo como `.dotfiles`.
+5. Después descarga PowerShell y Windows Terminal.
+
+Ejecuta como administrador:
 
 ```bash
 cd .dotfiles/os/windows
 ./windows.ps1
 ```
 
-Note: If the script is not marked as executable, you may receive an error message when trying to run it. To fix this, you can use the following command to make the script executable:
+**Nota:** Si el script no está marcado como ejecutable, podrías recibir un error al tratar de ejecutarlo. Para solucionarlo, usa este comando para habilitarlo:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-or
+o
 
 PS C:\path\to\script> Set-ExecutionPolicy Unrestricted
 ```
 
-- Run symlink.ps1 as manager
-- Import Terminal config
+* Ejecuta `symlink.ps1` como administrador.
+* Importa la configuración del Terminal.
 
-### Setup lid of laptop
+---
 
-- Go to `Preferences/Power` and set the lid to `Do nothing` when is closed
-  ![Setup lid](https://i.ibb.co/YjnzHvX/Screenshot-2024-01-02-221952.png "Setup")
+### Configurar el comportamiento de la tapa del portátil
 
-### Important Directories to know
+* Ve a `Preferencias/Energía` y configura que al cerrar la tapa no se haga nada.
+  ![Configurar tapa](https://i.ibb.co/YjnzHvX/Screenshot-2024-01-02-221952.png "Setup")
+
+---
+
+### Directorios importantes a conocer
 
 ```powershell
-Users >  NameUser >  .config >  powershell
+Usuarios > NombreUsuario > .config > powershell
 
-Users >  NameUser > Documents >  PowerShell
+Usuarios > NombreUsuario > Documentos > PowerShell
 
-User > NameUser > AppData > Local > nvim
+Usuarios > NombreUsuario > AppData > Local > nvim
 ```
+

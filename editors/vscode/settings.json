@@ -6,6 +6,9 @@
     "scminput": false
   },
   "window.autoDetectColorScheme": true,
+  "window.nativeTabs": true,
+  "window.menuBarVisibility": "compact",
+  "window.commandCenter": false,
   "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
   "workbench.colorTheme": "Codely Dark",
   "workbench.preferredDarkColorTheme": "Codely Dark",
@@ -17,13 +20,16 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 20,
   "workbench.list.horizontalScrolling": true,
+  "workbench.statusBar.visible": false,   
+  "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
   "files.associations": {
     "*.strings": "plist"
   },
   "files.autoSave": "afterDelay",
   "files.eol": "\n",
   "editor.codeActionsOnSave": {
-    "soruce.addMissingImports": "explicit",
+    "source.addMissingImports": "explicit",
     "source.organizeImports": "explicit"
   },
   "editor.scrollBeyondLastLine": false,
@@ -42,7 +48,6 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.hideCursorInOverviewRuler": true,
-  "explorer.compactFolders": false,
   "[typescript]": {
     "editor.formatOnSave": false,
     "editor.codeActionsOnSave": [
@@ -50,6 +55,8 @@
       "source.fixAll.eslint"
     ]
   },
+  "editor.foldingImportsByDefault": true,
+  "explorer.compactFolders": false,
   "apc.electron": {
     "titleBarStyle": "hiddenInset",
     "trafficLightPosition": {
@@ -60,15 +67,9 @@
   "apc.header": {
     "height": 36
   },
-  "apc.font.family": "'DankMono Nerd Font', 'Hack Mono'",
-  "apc.monospace.font.family": "'DankMono Nerd Font', 'Hack Mono'",
-  "workbench.statusBar.visible": false,
-  "window.nativeTabs": true,
-  "window.menuBarVisibility": "compact",
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
-  "editor.foldingImportsByDefault": true,
+  "apc.font.family": "DankMono Nerd Font",
+  "apc.monospace.font.family": "DankMono Nerd Font",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "workbench.activityBar.location": "hidden"
+  "security.workspace.trust.untrustedFiles": "open"
 }
