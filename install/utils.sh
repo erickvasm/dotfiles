@@ -208,9 +208,9 @@ install_stow_packages() {
       local package_name
       package_name="$(basename "$dir")"
 
-      # Saltar 'nvim' si estamos en macOS
-      if [[ "$OS" == "macOS" && "$package_name" == "nvim" ]]; then
-        log_warn "Saltando paquete 'nvim' en macOS"
+      # Saltar 'vscode' si estamos en macOS
+      if [[ "$OS" == "macOS" && "$package_name" == "vscode" ]]; then
+        log_warn "Saltando paquete 'vscode' en macOS"
         continue
       fi
 
