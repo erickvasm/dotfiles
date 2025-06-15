@@ -1,0 +1,80 @@
+{
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false
+  },
+  "breadcrumbs.enabled": false,
+  "window.autoDetectColorScheme": true,
+  "window.nativeTabs": true,
+  "window.menuBarVisibility": "compact",
+  "window.commandCenter": false,
+  "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+  "workbench.colorTheme": "Codely Dark",
+  "workbench.preferredLightColorTheme": "Quiet Light",
+  "workbench.preferredDarkColorTheme": "Codely Dark",
+  "workbench.editorAssociations": {
+    "*.plist": "default"
+  },
+  "workbench.list.smoothScrolling": true,
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 20,
+  "workbench.list.horizontalScrolling": true,
+  
+  "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "files.associations": {
+    "*.strings": "plist"
+  },
+  "files.autoSave": "afterDelay",
+  "files.eol": "\n",
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.scrollBeyondLastLine": false,
+  "editor.formatOnSave": true,
+  "editor.lightbulb.enabled": "off",
+  "editor.smoothScrolling": true,
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "'DankMono Nerd Font', 'Hack Mono'",
+  "editor.fontSize": 17,
+  "editor.lineHeight": 2.1,
+  "editor.fontLigatures": true,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "[typescript]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": [
+      "source.addMissingImports",
+      "source.fixAll.eslint"
+    ]
+  },
+  "editor.foldingImportsByDefault": true,
+  "explorer.compactFolders": false,
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 8,
+      "y": 10
+    }
+  },
+  "apc.header": {
+    "height": 36
+  },
+  "apc.font.family": "DankMono Nerd Font",
+  "apc.monospace.font.family": "DankMono Nerd Font",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.statusBar.visible": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}

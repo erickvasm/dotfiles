@@ -1,94 +1,107 @@
 <h1 align="center">
   Dotfiles
-  <img src="https://blog.zachinachshon.com/assets/images/localdev/dotfiles/dotfiles-blog-220x230.png" alt="File" width="50" height="50"
+  <img src="https://blog.zachinachshon.com/assets/images/localdev/dotfiles/dotfiles-blog-220x230.png" alt="File" width="50" height="50">
 </h1>
 
 ## Restore your Dotfiles manually
 
-- Install git
-- Clone your dotfiles repository `git clone [your repository of dotfiles] $HOME/.dotfiles`
-- Go to your dotfiles folder `cd $HOME/.dotfiles`
-- Give execution permissions to the install script `chmod +x install`
-- Execute the install script `./install`
-- Restart your terminal
+1. Install git
+2. Clone your dotfiles repository:
+   ```bash
+   git clone [your repository of dotfiles] $HOME/.dotfiles
+  ```
 
-## Estructure of the dotfiles repository
+3. Go to your dotfiles folder:
+
+   ```bash
+   cd $HOME/.dotfiles
+   ```
+4. Give execution permissions to the install script:
+
+   ```bash
+   chmod +x install/bootstrap.sh
+   ```
+5. Execute the install script:
+
+   ```bash
+   ./install/bootstrap.sh
+   ```
+6. Restart your terminal
+
+
+## Project Structure
 
 ```bash
-├── 📁 doc                 # Documentation of your dotfiles
-├── 📁 editors             # Settings of your editors (vim)
-├── 📁 git                 # git config
-├── 📁 langs               # Config for programming languages/libraries
-├── 📁 os                  # Specific config of your Operative System
-├── 📁 scripts             # Your custom scripts
-├── 📁 shell               # Bash/Zsh/Fish… configuration files
-└── 📁 symlinks            # The config of your symlinks
+├── docs                    # Documentation of installation and tools
+├── install                 # Bootstrap and helper scripts
+├── os                      # OS-specific configs
+│   ├── unix
+│   │   ├── linux
+│   │   ├── mac
+│   │   └── packages/       # Bash, ZSH, Git, Vim, VSCode, etc.
+│   └── windows/
+├── utilities               # Utility scripts
+└── README.md
 ```
 
-## Tools
+---
 
-The following tools are included in this repository:
+## Tools and Features
 
-- **exa:** ls replacement
-- **fzf:** fuzzy finder
-- **bat:** cat replacement, only for macOS
-- **programs**
-- **aliases**
-- **bash config**
-- **zsh config**
-- **A terminal theme**
-- **git config**
-- **nvim config**
-- **powershell config**: by _[devaslife](https://github.com/craftzdog)_
-- **scripts**
+This repository includes:
 
-`NOTE: VSCode configurations are included so that they are versioned and if someone wants to have the same configuration. Although this is not necessary`
+* **exa:** Enhanced `ls`
+* **fzf:** Fuzzy finder
+* **bat:** Better `cat` (macOS only)
+* **Shell configs:** Bash & Zsh setups
+* **Terminal themes**
+* **Git global config**
+* **NeoVim & LazyVim config**
+* **VSCode user settings**
+* **PowerShell config** (credits to [devaslife](https://github.com/craftzdog))
+* **Utility scripts:** for video compression, sleep prevention, and plist automation
+
+> 💡 *Note: VSCode settings are included mainly for backup/versioning.*
+
+---
 
 ## Windows
 
-For windows, you need to read the documentation in the folder `doc/Windows.md`
+For Windows setup instructions, refer to:
 
-## Preview of dotfiles
+```
+docs/installation-window.md
+```
 
-<table>
-  <tr>
-    <td align="center">
-      <b>Bash config</b><br>
-      <img src="https://i.ibb.co/YNZX005/Screenshot-2024-04-22-at-11-05-43-AM.png">
-    </td>
-    <td align="center">
-      <b>Bash with starhip</b><br>
-      <img src="https://i.ibb.co/RbbFQS4/Screenshot-2024-01-11-at-12-40-44-PM.png">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <b>Init.vim</b><br>
-      <img src="https://i.ibb.co/8DZ8RFB/Screenshot-2024-04-22-at-11-08-08-AM.png">
-    </td>
-    <td align="center">
-      <b>LazzyVim config</b><br>
-      <img src="https://i.ibb.co/XCsrZFN/Screenshot-2024-01-11-at-12-42-49-PM.png">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <b>PowerShell with Tacuya configs</b><br>
-      <img src="https://i.ibb.co/Jzr0387/img1.png">
-    </td>
-    <td align="center">
-      <b>PowerShell with Starchip</b><br>
-      <img src="https://i.ibb.co/YDmRCMg/terminal.png">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">
-      <b>VScode configs</b><br>
-      <img src="https://i.ibb.co/94rX2Mp/Screenshot-2024-04-22-at-11-46-39-AM.png">
-    </td>
-  </tr>
-</table>
+---
 
-## References
+## Preview
 
-This repository is based on [dotly](https://github.com/CodelyTV/dotly/)
+### Bash config
+
+![bash config](https://i.ibb.co/YNZX005/Screenshot-2024-04-22-at-11-05-43-AM.png)
+
+### Bash with Starship
+
+![bash with starship](https://i.ibb.co/RbbFQS4/Screenshot-2024-01-11-at-12-40-44-PM.png)
+
+### Init.vim
+
+![init vim](https://i.ibb.co/8DZ8RFB/Screenshot-2024-04-22-at-11-08-08-AM.png)
+
+### LazyVim config
+
+![lazyvim](https://i.ibb.co/XCsrZFN/Screenshot-2024-01-11-at-12-42-49-PM.png)
+
+### PowerShell with Takuya config
+
+![powershell takuya](https://i.ibb.co/Jzr0387/img1.png)
+
+### PowerShell with Starship
+
+![powershell starship](https://i.ibb.co/YDmRCMg/terminal.png)
+
+### VSCode config
+
+![vscode](https://i.ibb.co/94rX2Mp/Screenshot-2024-04-22-at-11-46-39-AM.png)
+

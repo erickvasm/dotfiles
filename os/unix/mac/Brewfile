@@ -1,0 +1,25 @@
+tap "homebrew/bundle"
+brew "mas"
+brew "curl"
+brew "eza"
+brew "fzf"
+brew "gh"
+brew "gradle"
+brew "python"
+brew "maven"
+brew "neovim"
+brew "node"
+brew "httpie"
+brew "tree"
+brew "starship"
+cask "orbstack"
+cask "dataflare"
+cask "google-chrome"
+cask "jetbrains-toolbox"
+cask "visual-studio-code"
+cask "monitorcontrol"
+mas "LanguageTool", id: 1534275760
+mas "Dark Reader for Safar", id: 1438243180
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Gramarly", id: 1462114288

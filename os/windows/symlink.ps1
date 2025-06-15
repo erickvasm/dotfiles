@@ -1,0 +1,6 @@
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.config\powershell" -Target "$env:USERPROFILE/.dotfiles/os/windows/powershell"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Target "$env:USERPROFILE/.dotfiles/os/windows/config/Microsoft.PowerShell_profile.ps1"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\AppData\Local\nvim" -Target "$env:USERPROFILE/.dotfiles/editors/nvim"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gitconfig" -Target "$env:USERPROFILE/.dotfiles/git/.gitconfig"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gitignore_global" -Target "$env:USERPROFILE/.dotfiles/git/.gitignore_global"
+New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gitmessage.txt" -Target "$env:USERPROFILE/.dotfiles/git/.gitmessage.txt"
