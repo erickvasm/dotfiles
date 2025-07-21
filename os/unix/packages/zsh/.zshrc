@@ -39,6 +39,11 @@ alias ...='cd ..'
 alias ls="eza --icons"
 alias ll="eza -a --icons"
 
+# func
+google(){
+    gemini -p "Search google for <query>$1</query> and summarize  results"
+}
+
 # -----------------
 # Zim configuration
 # -----------------

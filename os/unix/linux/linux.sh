@@ -1,16 +1,13 @@
 #!/bin/bash
-set -euo pipefail 
-
-# Cargar funciones y variables
-source ./utils.sh
+set -euo pipefail
 
 log_info "Instalando GitHub CLI"
 type -p curl >/dev/null || sudo apt update && sudo apt install curl -y
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y || _e "Error installing Github CLI"
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&
+  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg &&
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
+  sudo apt update &&
+  sudo apt install gh -y || _e "Error installing Github CLI"
 
 log_info "Instalando volta"
 curl https://get.volta.sh | bash
@@ -22,13 +19,13 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xvzf ~/Downloads/nvim-linux64.tar.gz || _e "Error extracting Neovim"
 if [ -d /opt/nvim-linux64 ]; then
-    export PATH="$PATH:/opt/nvim-linux64/bin"
+  export PATH="$PATH:/opt/nvim-linux64/bin"
 else
   _e "Extraction failed or nvim-linux64 directory not found"
   exit 1
 fi
-    
-log_info "Instalando eza"    
+
+log_info "Instalando eza"
 sudo mkdir -p /etc/apt/keyrings
 wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
 echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list

@@ -21,9 +21,7 @@
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 20,
   "workbench.list.horizontalScrolling": true,
-  
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.location": "hidden",
   "files.associations": {
     "*.strings": "plist"
   },
@@ -58,23 +56,11 @@
   },
   "editor.foldingImportsByDefault": true,
   "explorer.compactFolders": false,
-  "apc.electron": {
-    "titleBarStyle": "hiddenInset",
-    "trafficLightPosition": {
-      "x": 8,
-      "y": 10
-    }
-  },
-  "apc.header": {
-    "height": 36
-  },
-  "apc.font.family": "DankMono Nerd Font",
-  "apc.monospace.font.family": "DankMono Nerd Font",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "security.workspace.trust.untrustedFiles": "open",
-  "workbench.statusBar.visible": false,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "workbench.statusBar.visible": false
 }

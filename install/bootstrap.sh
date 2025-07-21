@@ -2,8 +2,11 @@
 set -euo pipefail
 
 # Cargar funciones y variables
-source ./utils.sh
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+source "$SCRIPT_DIR/utils.sh"
 source "$DEFAULT_DOTFILES_DIR/os/unix/linux/packages.conf"
+source "$DEFAULT_DOTFILES_DIR/os/unix/python_node.conf"
 
 main() {
   print_logo
@@ -31,6 +34,9 @@ main() {
     "$DEFAULT_DOTFILES_DIR/os/unix/mac/macos.sh"
   fi
 
+  with_spinner "Instalando herramientas Volta" install_volta_packages "${VOLTA_PACKAGES[@]}"
+  with_spinner "Instalando paquetes npm globales" install_npm_global_packages "${NPM_GLOBALS[@]}"
+  with_spinner "Instalando paquetes pip3" install_pip_packages "${PYTHON_PACKAGES[@]}"
   with_spinner "Instalando fuentes" dotfiles_install_fonts
   with_spinner "Estableciendo Zsh como shell predeterminado" make_zsh_default
 
