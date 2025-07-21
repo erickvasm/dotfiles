@@ -103,8 +103,21 @@ with_spinner() {
   local tmpfile
   tmpfile=$(mktemp)
 
+  # Creamos un FIFO (named pipe) para procesamiento en vivo
+  local pipefile
+  pipefile=$(mktemp -u)
+  mkfifo "$pipefile"
+
+  # Procesamos la salida: la guardamos y mostramos WARN/ERROR en consola
+  tee "$tmpfile" < "$pipefile" |
+    while IFS= read -r line; do
+      echo "$line" >> "$LOG_FILE"
+      [[ "$line" == *"[WARN]"* || "$line" == *"[ERROR]"* ]] && echo "$line"
+    done &
+
+  # Ejecutamos el comando, mandando su salida al FIFO
   (
-    "${cmd[@]}" >"$tmpfile" 2>&1
+    "${cmd[@]}" >"$pipefile" 2>&1
   ) &
   local pid=$!
 
@@ -123,18 +136,13 @@ with_spinner() {
   local exit_code=$?
 
   tput cnorm
-  printf "\r\033[K" # Limpia la línea de spinner
+  printf "\r\033[K"
 
-  # Añade la salida al archivo de log
-  if [[ -s "$tmpfile" ]]; then
-    echo "[COMMAND OUTPUT] ${cmd[*]}:" >> "$LOG_FILE"
-    cat "$tmpfile" >> "$LOG_FILE"
-    echo >> "$LOG_FILE"
-  fi
-  rm -f "$tmpfile"
+  rm -f "$tmpfile" "$pipefile"
 
   return $exit_code
 }
+
 
 # Instalar paquetes apt
 install_apt_packages() {
