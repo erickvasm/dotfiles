@@ -12,23 +12,23 @@ main() {
   print_logo
   identify_os
 
-  check_or_create_dir "$DEFAULT_DOTFILES_DIR"
+  check_or_create_dir "$DEFAULT_DOTFILES_DIR" >>"$LOG_FILE" 2>&1
 
   for script in "$DEFAULT_DOTFILES_DIR"/install/*.sh; do
-    ejecutable "$script"
+    ejecutable "$script" >>"$LOG_FILE" 2>&1
   done
 
   with_spinner "Stow para la gestión de paquetes" install_stow_packages
 
   log_info "Instalando paquetes esenciales..."
   if [[ "$OS" == "Linux" ]]; then
-    ejecutable "$DEFAULT_DOTFILES_DIR/os/unix/linux/linux.sh"
+    ejecutable "$DEFAULT_DOTFILES_DIR/os/unix/linux/linux.sh" >>"$LOG_FILE" 2>&1
     with_spinner "Configurando entorno Linux" "$DEFAULT_DOTFILES_DIR/os/unix/linux/linux.sh"
     with_spinner "Instalando paquetes APT" install_apt_packages "${APT[@]}"
     with_spinner "Instalando paquetes Snap" install_snap_packages "${SNAP[@]}"
     [[ -f "$HOME/.Xmodmap" ]] && xmodmap "$HOME/.Xmodmap"
   elif [[ "$OS" == "macOS" ]]; then
-    ejecutable "$DEFAULT_DOTFILES_DIR/os/unix/mac/macos.sh"
+    ejecutable "$DEFAULT_DOTFILES_DIR/os/unix/mac/macos.sh" >>"$LOG_FILE" 2>&1
     with_spinner "Instalando paquetes Brewfile" install_brewfile "$DEFAULT_DOTFILES_DIR/os/unix/mac/Brewfile"
     log_info "Configurando macOS..."
     "$DEFAULT_DOTFILES_DIR/os/unix/mac/macos.sh"

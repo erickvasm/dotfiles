@@ -102,47 +102,48 @@ with_spinner() {
 
   local tmpfile
   tmpfile=$(mktemp)
-
-  # Creamos un FIFO (named pipe) para procesamiento en vivo
   local pipefile
   pipefile=$(mktemp -u)
   mkfifo "$pipefile"
 
-  # Procesamos la salida: la guardamos y mostramos WARN/ERROR en consola
+  # Proceso lector del pipe
   tee "$tmpfile" < "$pipefile" |
     while IFS= read -r line; do
       echo "$line" >> "$LOG_FILE"
-      [[ "$line" == *"[WARN]"* || "$line" == *"[ERROR]"* ]] && echo "$line"
+
+      # Si es línea importante, limpia el spinner antes de imprimirla
+      if [[ "$line" == *"[WARN]"* || "$line" == *"[ERROR]"* ]]; then
+        printf "\r\033[K" # Limpia la línea del spinner
+        echo "$line"
+      fi
     done &
 
-  # Ejecutamos el comando, mandando su salida al FIFO
+  # Ejecutar el comando en segundo plano
   (
     "${cmd[@]}" >"$pipefile" 2>&1
   ) &
   local pid=$!
 
-  local delay=0.15
-  local spinstr='⣾⣽⣻⢿⡿⣟⣯⣷'
-  local i=0
+  local delay=0.1
+  local spinstr='-\|/'
 
   tput civis
+  local i=0
   while kill -0 "$pid" 2>/dev/null; do
-    printf "\r%s  " "${spinstr:$((i % ${#spinstr})):1}"
+    printf "\r%s  " "${spinstr:i++%${#spinstr}:1}"
     sleep "$delay"
-    ((i++))
   done
 
   wait "$pid"
   local exit_code=$?
 
   tput cnorm
-  printf "\r\033[K"
+  printf "\r\033[K" # Limpia la línea del spinner final
 
   rm -f "$tmpfile" "$pipefile"
 
   return $exit_code
 }
-
 
 # Instalar paquetes apt
 install_apt_packages() {
