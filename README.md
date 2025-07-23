@@ -8,7 +8,7 @@
 1. Install git
 2. Clone your dotfiles repository:
    ```bash
-   git clone [your repository of dotfiles] $HOME/.dotfiles
+   git clone https://github.com/erickvasm/dotfiles.git $HOME/.dotfiles
   ```
 
 3. Go to your dotfiles folder:
@@ -33,13 +33,14 @@
 
 ```bash
 ├── docs                    # Documentation of installation and tools
+├── export_logs             # Logs of exported configurations
 ├── install                 # Bootstrap and helper scripts
 ├── os                      # OS-specific configs
-│   ├── unix
-│   │   ├── linux
-│   │   ├── mac
-│   │   └── packages/       # Bash, ZSH, Git, Vim, VSCode, etc.
-│   └── windows/
+│   ├── unix
+│   │   ├── linux
+│   │   ├── mac
+│   │   └── packages/       # Bash, ZSH, Git, Vim, VSCode, etc.
+│   └── windows/
 ├── utilities               # Utility scripts
 └── README.md
 ```
@@ -62,6 +63,51 @@ This repository includes:
 * **Utility scripts:** for video compression, sleep prevention, and plist automation
 
 > 💡 *Note: VSCode settings are included mainly for backup/versioning.*
+
+---
+
+## Utilities
+
+### `export_config.sh`
+
+This script exports a list of globally installed packages and configurations from various package managers.
+
+**Usage:**
+
+```bash
+./utilities/export_config.sh
+```
+
+This will create the following files in the `export_logs` directory:
+
+*   `volta_globals.txt`: A list of global tools installed with Volta.
+*   `pip_global_packages.txt`: A list of global packages installed with pip.
+*   `gradle_properties.txt`: Gradle properties.
+*   `Brewfile`: A list of packages installed with Homebrew.
+
+These files can be used to manually update the package lists in `os/unix/python_node.conf` and `os/unix/mac/Brewfile`.
+
+### `plist-config.sh`
+
+This script manages macOS system preferences by exporting and importing configurations using `.plist` files.
+
+**Usage:**
+
+*   **Export:**
+
+    ```bash
+    ./utilities/plist-config.sh export
+    ```
+
+    This will export your current system preferences to `.plist` files located in `os/unix/mac/settings`.
+
+*   **Import:**
+
+    ```bash
+    ./utilities/plist-config.sh import
+    ```
+
+    This will import the preferences from the `.plist` files in `os/unix/mac/settings`, applying them to your system.
 
 ---
 
@@ -104,4 +150,3 @@ docs/installation-window.md
 ### VSCode config
 
 ![vscode](https://i.ibb.co/94rX2Mp/Screenshot-2024-04-22-at-11-46-39-AM.png)
-
