@@ -94,6 +94,4 @@ If you want to deactivate the imports toggle, go to configuration, code folding
 - vsCode port feature to share my localHost
 - cmd i: ask copilot
 
-## Others app
 
-- OrbStack: alternative to docker desktop

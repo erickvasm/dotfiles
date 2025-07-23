@@ -7,7 +7,7 @@
 #   ./script.sh import [<path_from>] - Imports system preferences from .plist files in the specified or default path.
 
 # Set the default path for dotfiles settings.
-dotfiles_settings_path=${2:-"$HOME/.dotfiles/os/mac/settings"}
+dotfiles_settings_path=${2:-"$HOME/.dotfiles/os/unix/mac/settings"}
 
 # Validate arguments.
 if [ $# -eq 0 ]; then

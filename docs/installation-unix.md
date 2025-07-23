@@ -30,12 +30,6 @@
   - Cambia la fuente y el tema.
 - Reinicia la computadora.
 
-Con el script `plist-config` se configura una Mac nueva con valores predeterminados, pero también puedes usarlo para exportar tu propia configuración:
-
-```bash
-./plist-config.sh export /Users/graifin/.dotfiles/os/mac/settings
-```
-
 ### Reasignar la tecla Caps Lock
 
 - Reasigna la tecla Caps Lock.
