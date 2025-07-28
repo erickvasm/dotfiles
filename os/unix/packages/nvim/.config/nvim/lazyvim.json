@@ -21,7 +21,9 @@
     "lazyvim.plugins.extras.util.gitui",
     "lazyvim.plugins.extras.vscode",
     "plugins.extras.editor.edgy",
-    "plugins.extras.editor.lualine"
+    "plugins.extras.editor.lualine",
+    "plugins.extras.editor.avante",
+    "plugins.extras.editor.multicursor"
   ],
   "install_version": 7,
   "news": {
