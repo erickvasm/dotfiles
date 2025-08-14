@@ -11,7 +11,7 @@ mostrar_ayuda() {
 
 # Función para matar el proceso de caffeinate
 matar_proceso() {
-    local pid=$(ps aux | grep "caffeinate -t" | grep -v grep | awk '{print $2}')
+    local pid=$(pgrep -f "caffeinate")
     if [ -z "$pid" ]; then
         echo "No se encontró ningún proceso de caffeinate para matar."
     else
