@@ -1,9 +1,14 @@
 <h1 align="center">
   Dotfiles
-  <img src="https://blog.zachinachshon.com/assets/images/localdev/dotfiles/dotfiles-blog-220x230.png" alt="File" width="50" height="50">
+
+  <picture style="width: 30px; height: 30px;">
+    <source media="(prefers-color-scheme: light)" srcset="https://i.ibb.co/GQSTr7r2/Git-Hub-Mark-ea2971cee799.png">
+    <source media="(prefers-color-scheme: dark)" srcset="https://i.ibb.co/nMXjC9zk/648256.png">
+    <img alt="GitHub logo" src="https://i.ibb.co/nMXjC9zk/648256.png" style="width: 5%; height: 5%;">
+  </picture>
 </h1>
 
-## Restore your Dotfiles manually
+## Restore your Dotfiles manually 
 
 1. Install git
 2. Clone your dotfiles repository:
