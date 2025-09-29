@@ -8,6 +8,8 @@
   </picture>
 </h1>
 
+<img alt="img" src="https://i.ibb.co/whdSrMHL/Screenshot-2025-09-28-at-8-54-28-AM.png">
+
 ## Restore your Dotfiles manually 
 
 1. Install git
@@ -31,7 +33,13 @@
    ```bash
    ./install/bootstrap.sh
    ```
-6. Restart your terminal
+6. Execute:
+
+   ```bash
+   tail -f install.log
+   ```
+
+7. Restart de computer
 
 
 ## Project Structure

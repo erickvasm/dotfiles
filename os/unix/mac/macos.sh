@@ -5,13 +5,33 @@ set -euo pipefail
 # Initial Setup                                                               #
 ###############################################################################
 
-# Create a symbolic link for VsCode settings
-rm -rf ~/Library/Application\ Support/Code/User/keybindings.json
-rm -rf ~/Library/Application\ Support/Code/User/settings.json
 
-ln -s ~/.dotfiles/os/unix/packages/vscode/.config/Code/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-ln -s ~/.dotfiles/os/unix/packages/vscode/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
+# ===========
 
+# Crear enlaces simbólicos para la configuración de VS Code
+
+# Rutas destino
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+KEYBINDINGS_FILE="$VSCODE_USER_DIR/keybindings.json"
+SETTINGS_FILE="$VSCODE_USER_DIR/settings.json"
+
+# Rutas fuente
+SOURCE_KEYBINDINGS="$HOME/.dotfiles/os/unix/packages/vscode/.config/Code/User/keybindings.json"
+SOURCE_SETTINGS="$HOME/.dotfiles/os/unix/packages/vscode/.config/Code/User/settings.json"
+
+# Crear directorio de destino si no existe
+mkdir -p "$VSCODE_USER_DIR"
+
+# Eliminar archivos existentes si existen
+[[ -e "$KEYBINDINGS_FILE" || -L "$KEYBINDINGS_FILE" ]] && rm -rf "$KEYBINDINGS_FILE"
+[[ -e "$SETTINGS_FILE" || -L "$SETTINGS_FILE" ]] && rm -rf "$SETTINGS_FILE"
+
+# Crear enlaces simbólicos
+ln -s "$SOURCE_KEYBINDINGS" "$KEYBINDINGS_FILE"
+ln -s "$SOURCE_SETTINGS" "$SETTINGS_FILE"
+
+
+# =============
 # Close any open System Preferences panes to prevent settings overrides
 osascript -e 'tell application "System Preferences" to quit'
 

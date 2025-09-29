@@ -29,7 +29,8 @@ main() {
     [[ -f "$HOME/.Xmodmap" ]] && xmodmap "$HOME/.Xmodmap"
   elif [[ "$OS" == "macOS" ]]; then
     ejecutable "$DEFAULT_DOTFILES_DIR/os/unix/mac/macos.sh" >>"$LOG_FILE" 2>&1
-    with_spinner "Instalando paquetes Brewfile" install_brewfile "$DEFAULT_DOTFILES_DIR/os/unix/mac/Brewfile"
+    log_info "Instalando paquetes Brewfile"
+    install_brewfile "$DEFAULT_DOTFILES_DIR/os/unix/mac/Brewfile"
     log_info "Configurando macOS..."
     "$DEFAULT_DOTFILES_DIR/os/unix/mac/macos.sh"
   fi
@@ -38,7 +39,8 @@ main() {
   with_spinner "Instalando paquetes npm globales" install_npm_global_packages "${NPM_GLOBALS[@]}"
   with_spinner "Instalando paquetes pip3" install_pip_packages "${PYTHON_PACKAGES[@]}"
   with_spinner "Instalando fuentes" dotfiles_install_fonts
-  with_spinner "Estableciendo Zsh como shell predeterminado" make_zsh_default
+  log_info "Estableciendo Zsh como shell predeterminado"
+  make_zsh_default
 
   log_info "Bootstrap finalizado correctamente 🎉"
 }

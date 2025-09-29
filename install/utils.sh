@@ -266,13 +266,16 @@ install_brewfile() {
 
   if [[ ! -f "$brewfile_path" ]]; then
     log_error "No se encontró el Brewfile en: $brewfile_path"
+    return 1
   fi
 
   log_info "Instalando paquetes desde Brewfile: $brewfile_path"
-  if ! brew bundle --file="$brewfile_path"; then
-    log_warn "Ocurrió un error al ejecutar 'brew bundle'."
-  else
+
+  # Redirigimos salida al log
+  if brew bundle --file="$brewfile_path" >>"$LOG_FILE" 2>&1; then
     log_info "Todos los paquetes del Brewfile fueron instalados correctamente."
+  else
+    log_warn "Ocurrió un error al ejecutar 'brew bundle'. Revisa $LOG_FILE para más detalles."
   fi
 }
 
@@ -298,6 +301,10 @@ install_stow_if_needed() {
 # Aplica stow solo en paquetes dentro de os/unix/packages
 install_stow_packages() {
   local dotfiles_dir="${1:-$DEFAULT_DOTFILES_DIR}"
+
+  check_brew
+  install_stow_if_needed
+
   log_info "Instalando dotfiles desde: $dotfiles_dir"
 
   local stow_target="$dotfiles_dir/os/unix/packages"
@@ -348,8 +355,8 @@ dotfiles_install_fonts() {
   check_or_create_dir "$DEFAULT_FONTS_DIR"
 
   if command_exists gh; then
-    #gh auth login
-    #gh repo clone erickvasm/DankMono "$DEFAULT_FONTS_DIR" || log_warn "No se pudo clonar el repositorio de fuentes."
+    gh auth login
+    gh repo clone erickvasm/DankMono "$DEFAULT_FONTS_DIR" || log_warn "No se pudo clonar el repositorio de fuentes."
     echo "Clonando fuentes DankMono..."
   else
     log_warn "No se pudo encontrar gh"

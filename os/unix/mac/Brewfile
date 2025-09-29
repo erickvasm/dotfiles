@@ -1,5 +1,5 @@
-tap "homebrew/bundle"
 tap "oven-sh/bun"
+
 brew "mas"
 brew "volta"
 brew "curl"
@@ -14,6 +14,7 @@ brew "node"
 brew "httpie"
 brew "tree"
 brew "starship"
+
 cask "orbstack"
 cask "dataflare"
 cask "google-chrome"
@@ -22,9 +23,9 @@ cask "visual-studio-code"
 cask "monitorcontrol"
 cask "microsoft-auto-update"
 cask "microsoft-teams"
-cask "orbstack"
 cask "warp"
 cask "zoom"
+
 mas "Dark Reader for Safari", id: 1438243180
 mas "Grammarly for Safari", id: 1462114288
 mas "Keynote", id: 409183694
