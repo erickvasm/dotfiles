@@ -23,7 +23,8 @@
     "plugins.extras.editor.edgy",
     "plugins.extras.editor.lualine",
     "plugins.extras.editor.avante",
-    "plugins.extras.editor.multicursor"
+    "plugins.extras.editor.multicursor",
+    "plugins.extras.editor.trouble"
   ],
   "install_version": 7,
   "news": {

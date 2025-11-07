@@ -22,3 +22,4 @@ For search/replace in multiple files, LazyVim includes spectre. Just press <lead
 - <leader>sT: search TODO, FIXME, etc
 - ctr + d: delete tab
 - ctrl + /: open c
+- <leader>xx: open trouble toggle

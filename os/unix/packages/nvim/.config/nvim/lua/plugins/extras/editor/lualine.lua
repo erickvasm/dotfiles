@@ -31,15 +31,20 @@ return {
           end,
         },
       }
-      --disable progress bar
-      opts.sections.lualine_z = {
+      -- only show the diff
+      opts.sections.lualine_x = {
         {
-          "progress",
-          fmt = function()
-            return ""
-          end,
+          "diff",
+          symbols = {
+            added = " ",
+            modified = " ",
+            removed = " ",
+          },
+          colored = true,
+          padding = { left = 1, right = 1 },
         },
       }
+      opts.sections.lualine_z = {}
     end,
   },
 }
