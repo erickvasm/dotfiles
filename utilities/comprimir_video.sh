@@ -49,8 +49,14 @@ done
 
 # Validar archivos
 if [ ${#FILES[@]} -eq 0 ]; then
-  echo "⚠️  No se especificaron archivos. Usa --help para ver cómo usar el script."
+  echo "No se especificaron archivos. Usa --help para ver cómo usar el script."
   exit 1
+fi
+
+# Verificar si ffmpeg está instalado
+if ! command -v ffmpeg > /dev/null 2>&1; then
+    echo "ffmpeg is not installed. Please install it to use this script."
+    exit 1
 fi
 
 # Procesar cada archivo
@@ -60,7 +66,7 @@ for FILE in "${FILES[@]}"; do
   NAME="${BASENAME%.*}"
   OUTPUT="${NAME}_comprimido.mp4"
 
-  echo "📦 Comprimiendo '$FILE' → '$OUTPUT'..."
+  echo "Comprimiendo '$FILE' → '$OUTPUT'..."
   echo "   CRF: $CRF | Scale: ${SCALE:-original} | Speed: $SPEED"
 
   if [ -n "$SCALE" ]; then
@@ -69,6 +75,6 @@ for FILE in "${FILES[@]}"; do
     ffmpeg -i "$FILE" -vcodec libx264 -crf "$CRF" -preset "$SPEED" -acodec aac -b:a 128k "$OUTPUT"
   fi
 
-  echo "✅ Comprimido: $OUTPUT"
+  echo "Comprimido: $OUTPUT"
   echo
 done
