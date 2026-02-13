@@ -1,0 +1,21 @@
+#!/bin/bash
+
+UTILITIES_DIR="$(dirname "$0")/../utilities"
+
+if [ $# -eq 0 ]; then
+    # Check if fzf is installed
+    if ! command -v fzf > /dev/null 2>&1; then
+        echo "fzf is not installed. Please install it to use this feature."
+        exit 1
+    fi
+    # List scripts with - instead of _
+    selected=$(ls "$UTILITIES_DIR"/*.sh 2>/dev/null | xargs basename | sed 's/.sh$//' | sed 's/_/-/g' | fzf --prompt="Select a script: ")
+    if [ -n "$selected" ]; then
+        script_name=$(echo "$selected" | sed 's/-/_/g')
+        "$UTILITIES_DIR/${script_name}.sh"
+    fi
+else
+    script=$(echo "$1" | sed 's/-/_/g')
+    shift
+    "$UTILITIES_DIR/${script}.sh" "$@"
+fi

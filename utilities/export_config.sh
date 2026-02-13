@@ -43,4 +43,4 @@ else
   echo "Homebrew no está instalado o no está en el PATH." >export_logs/Brewfile
 fi
 
-echo "✅ Exportación completada. Archivos guardados en 'export_logs/'"
+echo "Exportación completada. Archivos guardados en 'export_logs/'"
