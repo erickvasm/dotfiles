@@ -1,39 +1,42 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-SCRIPT_PATH="$(realpath "$0")"
-REPO_ROOT="$(cd "$(dirname "$SCRIPT_PATH")/../../../../.." && pwd)"
-UTILITIES_DIR="$REPO_ROOT/utilities"
+SCRIPTS_DIR="$HOME/.dotfiles/utilities"
 
-preview_cmd='
-file="{}"
-if command -v bat >/dev/null 2>&1; then
-  bat --style=numbers --color=always --line-range :200 "$file"
-else
-  sed -n "1,200p" "$file"
-fi
-'
+[[ ! -d "$SCRIPTS_DIR" ]] && {
+  echo "Directorio no encontrado: $SCRIPTS_DIR"
+  exit 1
+}
 
-if [ $# -eq 0 ]; then
-  if ! command -v fzf >/dev/null 2>&1; then
-    echo "fzf is not installed. Please install it to use this feature."
-    exit 1
-  fi
-
-  selected=$(
-    find "$UTILITIES_DIR" -maxdepth 1 -name "*.sh" -print |
-      sort |
-      fzf \
-        --prompt="Select a script: " \
-        --preview "$preview_cmd" \
-        --preview-window=right:60%:wrap
-  )
-
-  if [ -n "$selected" ]; then
-    "$selected"
-  fi
-
-else
-  script=$(echo "$1" | sed 's/-/_/g')
+# ---- ejecución directa ----
+if [[ $# -gt 0 ]]; then
+  SCRIPT="$1"
   shift
-  "$UTILITIES_DIR/${script}.sh" "$@"
+
+  SCRIPT_PATH="$SCRIPTS_DIR/$SCRIPT.sh"
+
+  [[ ! -f "$SCRIPT_PATH" ]] && {
+    echo "Script no encontrado: $SCRIPT"
+    exit 1
+  }
+
+  exec "$SCRIPT_PATH" "$@"
 fi
+
+# ---- modo fzf ----
+
+SELECTED=$(ls "$SCRIPTS_DIR"/*.sh \
+  | xargs -n1 basename \
+  | sed 's/\.sh$//' \
+  | fzf \
+      --prompt="Selecciona script > " \
+      --preview="cat $SCRIPTS_DIR/{}.sh" \
+      --preview-window=right:60%)
+
+[[ -z "$SELECTED" ]] && exit 0
+
+SCRIPT_PATH="$SCRIPTS_DIR/$SELECTED.sh"
+
+read -r -p "Parámetros para '$SELECTED': " PARAMS
+
+echo "▶ Ejecutando: $SELECTED $PARAMS"
+exec "$SCRIPT_PATH" $PARAMS

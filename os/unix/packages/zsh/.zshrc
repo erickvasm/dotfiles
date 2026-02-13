@@ -86,6 +86,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # PATH
 export PATH="$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # Zsh terminfo
 zmodload -F zsh/terminfo +p:terminfo
