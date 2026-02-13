@@ -35,14 +35,16 @@ fi
 # Alias comunes (válidos para ambos sistemas operativos)
 alias vim='nvim'
 alias c="clear"
-alias ...='cd ..'
+alias ..='cd ..'
 alias ls="eza --icons"
-alias ll="eza -a --icons"
+alias ll="eza -l -g -a --icons"
 
-# func
-google(){
-    gemini -p "Search google for <query>$1</query> and summarize  results"
+
+take() {
+    mkdir -p "$1"
+    cd "$1"
 }
+
 
 # -----------------
 # Zim configuration
@@ -79,9 +81,14 @@ command -v starship > /dev/null && eval "$(starship init zsh)"
 # volta
 export PATH="$HOME/.volta/bin:$PATH"
 
+# terminal 
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # PATH
 export PATH="$HOME/.local/bin:/opt/nvim-linux64/bin:$PATH"
 
 # Zsh terminfo
 zmodload -F zsh/terminfo +p:terminfo
+
+# Added by Windsurf
+export PATH="/Users/erickvasm/.codeium/windsurf/bin:$PATH"

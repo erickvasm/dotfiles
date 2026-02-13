@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.ai.supermaven",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.lang.astro",
@@ -20,15 +19,15 @@
     "lazyvim.plugins.extras.ui.edgy",
     "lazyvim.plugins.extras.util.gitui",
     "lazyvim.plugins.extras.vscode",
-    "plugins.extras.editor.edgy",
-    "plugins.extras.editor.lualine",
-    "plugins.extras.editor.avante",
-    "plugins.extras.editor.multicursor",
-    "plugins.extras.editor.trouble"
+    "plugins.extras.edgy",
+    "plugins.extras.lualine",
+    "plugins.extras.multicursor",
+    "plugins.extras.trouble",
+    "plugins.extras.claude"
   ],
   "install_version": 7,
   "news": {
-    "NEWS.md": "10960"
+    "NEWS.md": "11866"
   },
   "version": 8
 }

@@ -16,19 +16,11 @@ brew "tree"
 brew "starship"
 
 cask "orbstack"
-cask "dataflare"
 cask "google-chrome"
 cask "jetbrains-toolbox"
-cask "visual-studio-code"
 cask "monitorcontrol"
-cask "microsoft-auto-update"
-cask "microsoft-teams"
 cask "warp"
-cask "zoom"
 
 mas "Dark Reader for Safari", id: 1438243180
 mas "Grammarly for Safari", id: 1462114288
-mas "Keynote", id: 409183694
 mas "LanguageTool", id: 1534275760
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541

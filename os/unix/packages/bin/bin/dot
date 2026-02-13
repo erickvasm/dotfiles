@@ -1,0 +1,39 @@
+#!/bin/bash
+
+SCRIPT_PATH="$(realpath "$0")"
+REPO_ROOT="$(cd "$(dirname "$SCRIPT_PATH")/../../../../.." && pwd)"
+UTILITIES_DIR="$REPO_ROOT/utilities"
+
+preview_cmd='
+file="{}"
+if command -v bat >/dev/null 2>&1; then
+  bat --style=numbers --color=always --line-range :200 "$file"
+else
+  sed -n "1,200p" "$file"
+fi
+'
+
+if [ $# -eq 0 ]; then
+  if ! command -v fzf >/dev/null 2>&1; then
+    echo "fzf is not installed. Please install it to use this feature."
+    exit 1
+  fi
+
+  selected=$(
+    find "$UTILITIES_DIR" -maxdepth 1 -name "*.sh" -print |
+      sort |
+      fzf \
+        --prompt="Select a script: " \
+        --preview "$preview_cmd" \
+        --preview-window=right:60%:wrap
+  )
+
+  if [ -n "$selected" ]; then
+    "$selected"
+  fi
+
+else
+  script=$(echo "$1" | sed 's/-/_/g')
+  shift
+  "$UTILITIES_DIR/${script}.sh" "$@"
+fi
