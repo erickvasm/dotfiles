@@ -13,7 +13,7 @@ OS=""
 
 # Manejo de logs
 LOG_FILE="$DEFAULT_DOTFILES_DIR/install.log"
-: > "$LOG_FILE"
+: >"$LOG_FILE"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # Definir colores
@@ -107,9 +107,9 @@ with_spinner() {
   mkfifo "$pipefile"
 
   # Proceso lector del pipe
-  tee "$tmpfile" < "$pipefile" |
+  tee "$tmpfile" <"$pipefile" |
     while IFS= read -r line; do
-      echo "$line" >> "$LOG_FILE"
+      echo "$line" >>"$LOG_FILE"
 
       # Si es línea importante, limpia el spinner antes de imprimirla
       if [[ "$line" == *"[WARN]"* || "$line" == *"[ERROR]"* ]]; then
@@ -257,6 +257,33 @@ install_pip_packages() {
   done
 }
 
+install_pipx_packages() {
+  local packages=("$@")
+
+  if ! command_exists pipx; then
+    log_info "pipx no está instalado. Instalándolo..."
+
+    if command_exists pip3; then
+      pip3 install --user pipx || log_error "No se pudo instalar pipx"
+      pipx ensurepath
+      log_info "pipx instalado correctamente."
+    else
+      log_warn "pip3 no está disponible. No se puede instalar pipx."
+      return
+    fi
+  fi
+
+  for pkg in "${packages[@]}"; do
+    if pipx list | grep -q "$pkg"; then
+      log_info "$pkg ya está instalado con pipx."
+    else
+      log_info "Instalando $pkg con pipx..."
+      if ! pipx install "$pkg"; then
+        log_warn "No se pudo instalar $pkg con pipx."
+      fi
+    fi
+  done
+}
 
 # Instalar paquetes desde un Brewfile
 install_brewfile() {

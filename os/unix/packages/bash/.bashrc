@@ -21,3 +21,4 @@ take() {
 
 # Cargar configuraciones personalizadas
 [ -f $HOME/.bash_prompt ] && . $HOME/.bash_prompt
+. "$HOME/.cargo/env"

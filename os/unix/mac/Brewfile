@@ -14,12 +14,14 @@ brew "node"
 brew "httpie"
 brew "tree"
 brew "starship"
+brew "rust"
 
 cask "orbstack"
 cask "google-chrome"
 cask "jetbrains-toolbox"
 cask "monitorcontrol"
 cask "warp"
+cask "claude-code"
 
 mas "Dark Reader for Safari", id: 1438243180
 mas "Grammarly for Safari", id: 1462114288

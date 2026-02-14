@@ -38,6 +38,7 @@ main() {
   with_spinner "Instalando herramientas Volta" install_volta_packages "${VOLTA_PACKAGES[@]}"
   with_spinner "Instalando paquetes npm globales" install_npm_global_packages "${NPM_GLOBALS[@]}"
   with_spinner "Instalando paquetes pip3" install_pip_packages "${PYTHON_PACKAGES[@]}"
+  with_spinner "Instalando paquetes pipx" install_pipx_packages "${PIPX_PACKAGES[@]}"
   with_spinner "Instalando fuentes" dotfiles_install_fonts
   log_info "Estableciendo Zsh como shell predeterminado"
   make_zsh_default

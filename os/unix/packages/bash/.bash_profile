@@ -12,3 +12,4 @@ export PATH="$HOME/bin:$PATH"
 
 # fzf (Fuzzy Finder)
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"
