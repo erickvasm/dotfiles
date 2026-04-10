@@ -21,6 +21,8 @@ Reusable prompt-driven capabilities you can add to Claude Code.
 | Error Handling Patterns | Structured error handling, retries, and fallback strategies |
 | React / Next Best Practices | Patterns for React and Next.js (SSR, RSC, routing, state) |
 
+For Claude Desktop this skill is Useful: <https://github.com/blader/humanizer>
+
 ---
 
 ## MCP Servers
@@ -59,6 +61,6 @@ Hooks are configured in `settings.json` under the `hooks` key. See the official 
 
 | Resource | URL |
 |---|---|
-| Vercel `skills.sh` | https://skills.sh |
-| AI Templates | https://www.aitmpl.com/ |
-| Claude Code Official Docs | https://code.claude.com/docs/en/ |
+| Vercel `skills.sh` | <https://skills.sh> |
+| AI Templates | <https://www.aitmpl.com/> |
+| Claude Code Official Docs | <https://code.claude.com/docs/en/> |
