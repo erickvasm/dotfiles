@@ -1,0 +1,79 @@
+# Global Claude Code ignore file
+# Backed up in ~/.dotfiles/os/unix/packages/claude/.claude/.claudeignore
+
+# Secrets & credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa
+id_ed25519
+*.secret
+secrets/
+credentials/
+**/credentials.json
+**/service-account*.json
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+vendor/
+.bundle/
+
+# Build artifacts
+dist/
+build/
+out/
+.next/
+.nuxt/
+target/
+*.o
+*.a
+*.so
+*.dylib
+
+# Caches & temp
+.cache/
+*.cache
+tmp/
+temp/
+.tmp/
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large binary / media assets
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.iso
+*.dmg
+*.pkg
+
+# Lock files (large, not useful for context)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+Gemfile.lock
+poetry.lock
+Cargo.lock

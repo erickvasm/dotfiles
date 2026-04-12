@@ -1,12 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mv /Users/erickvasm/.claude/settings.json /Users/erickvasm/.claude/settings.json.bak)",
-      "Bash(stow -v -t ~ claude)",
       "Bash(git:*)",
-      "Bash(mkdir -p /Users/erickvasm/.dotfiles/os/unix/packages/claude/.claude)",
-      "Bash(mv /Users/erickvasm/.dotfiles/claude/.claude/settings.json /Users/erickvasm/.dotfiles/os/unix/packages/claude/.claude/settings.json)",
-      "Bash(rm -r /Users/erickvasm/.dotfiles/claude)",
       "Bash(rm:*)"
     ]
   }

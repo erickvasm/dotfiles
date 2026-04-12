@@ -15,6 +15,8 @@ when working inside this dotfiles repository.
 - Use the commit style of this repo: `feat:`, `fix:`, `docs:`, `chore:`.
 - Write concise commit messages that explain **why**, not just what.
 
+Allways use pnpm for projects
+
 ## Stow Conventions
 
 - All user-level configs live under `os/unix/packages/<pkg>/` and are symlinked to `$HOME` via GNU Stow.
