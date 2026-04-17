@@ -8,47 +8,6 @@ target locations like your home directory.
 
 ------------------------------------------------------------------------
 
-## Installation
-
-### macOS (Homebrew)
-
-``` bash
-brew install stow
-```
-
-### Ubuntu/Debian
-
-``` bash
-sudo apt install stow
-```
-
-### Arch Linux
-
-``` bash
-sudo pacman -S stow
-```
-
-------------------------------------------------------------------------
-
-## Basic Concepts
-
--   **Stow directory**: Where your packages (folders) live
--   **Target directory**: Where symlinks will be created (usually your
-    home directory `~`)
--   **Package**: A folder containing files to be linked
-
-------------------------------------------------------------------------
-
-## Example Structure
-
-    dotfiles/
-    ├── bash/
-    │   └── .bashrc
-    ├── git/
-    │   └── .gitconfig
-
-------------------------------------------------------------------------
-
 ## Usage
 
 ### 1. Navigate to your stow directory
@@ -103,28 +62,28 @@ stow -t /custom/path bash
 
 ## Best Practices
 
--   Keep one app per folder (package)
--   Mirror your home directory structure inside packages
--   Use version control (e.g., Git)
+- Keep one app per folder (package)
+- Mirror your home directory structure inside packages
+- Use version control (e.g., Git)
 
 ------------------------------------------------------------------------
 
 ## Common Errors
 
--   **File already exists**: Remove or backup the file before stowing
--   **Conflicts**: Stow will refuse to overwrite existing files
+- **File already exists**: Remove or backup the file before stowing
+- **Conflicts**: Stow will refuse to overwrite existing files
 
 ------------------------------------------------------------------------
 
 ## Tips
 
--   Use `--verbose` to see what Stow is doing:
+- Use `--verbose` to see what Stow is doing:
 
 ``` bash
 stow -v bash
 ```
 
--   Dry run:
+- Dry run:
 
 ``` bash
 stow -n bash
