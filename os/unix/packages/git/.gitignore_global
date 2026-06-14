@@ -11,3 +11,4 @@
 
 # Custom
 *.no-commit.*
+**/.claude/settings.local.json

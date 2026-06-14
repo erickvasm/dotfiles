@@ -16,6 +16,7 @@ show_help() {
 # Valores por defecto
 QUALITY=80
 FILES=()
+USING_DEFAULTS=true
 
 # Parsear argumentos
 while [[ $# -gt 0 ]]; do
@@ -26,6 +27,7 @@ while [[ $# -gt 0 ]]; do
     ;;
   --quality)
     QUALITY="$2"
+    USING_DEFAULTS=false
     shift 2
     ;;
   *)
@@ -39,6 +41,13 @@ done
 if [ ${#FILES[@]} -eq 0 ]; then
   echo "No se especificaron archivos. Usa --help para ver cómo usar el script."
   exit 1
+fi
+
+# Mostrar defaults si no se pasaron opciones
+if [ "$USING_DEFAULTS" = true ]; then
+  echo "Usando parámetros por defecto:"
+  echo "  --quality $QUALITY"
+  echo
 fi
 
 # Verificar si ImageMagick está instalado

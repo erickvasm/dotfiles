@@ -93,3 +93,8 @@ zmodload -F zsh/terminfo +p:terminfo
 
 # Added by Windsurf
 export PATH="/Users/erickvasm/.codeium/windsurf/bin:$PATH"
+
+# Android SDK
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:$PATH"

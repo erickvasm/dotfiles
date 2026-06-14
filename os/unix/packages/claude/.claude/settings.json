@@ -1,5 +1,9 @@
 {
-  "model": "opus",
+  "env": {
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "8000",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
+    "DISABLE_COST_WARNINGS": "1"
+  },
   "includeCoAuthoredBy": false,
   "hooks": {
     "PreToolUse": [
@@ -25,32 +29,36 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); used=$(echo \"$input\" | jq -r '.context_window.used_percentage // empty'); remaining=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // empty'); [ -n \"$used\" ] && printf \"Context: %.0f%% used / %.0f%% remaining\" \"$used\" \"$remaining\" || echo \"Context: waiting...\""
+  },
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "warp@claude-code-warp": true
+  },
   "extraKnownMarketplaces": {
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    },
     "caveman": {
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
       }
+    },
+    "agricidaniel-claude-seo": {
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-seo"
+      }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
     }
   },
   "effortLevel": "high",
-  "enabledPlugins": {
-    "warp@claude-code-warp": true,
-    "caveman@caveman": true
-  },
-  "env": {
-    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "8000",
-    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
-    "DISABLE_COST_WARNINGS": "1"
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "input=$(cat); used=$(echo \"$input\" | jq -r '.context_window.used_percentage // empty'); remaining=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // empty'); [ -n \"$used\" ] && printf \"Context: %.0f%% used / %.0f%% remaining\" \"$used\" \"$remaining\" || echo \"Context: waiting...\""
-  }
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "agentPushNotifEnabled": true
 }

@@ -20,6 +20,7 @@ CRF=28
 SCALE=""
 SPEED="slow"
 FILES=()
+USING_DEFAULTS=true
 
 # Parsear argumentos
 while [[ $# -gt 0 ]]; do
@@ -30,14 +31,17 @@ while [[ $# -gt 0 ]]; do
     ;;
   --crf)
     CRF="$2"
+    USING_DEFAULTS=false
     shift 2
     ;;
   --scale)
     SCALE="$2"
+    USING_DEFAULTS=false
     shift 2
     ;;
   --speed)
     SPEED="$2"
+    USING_DEFAULTS=false
     shift 2
     ;;
   *)
@@ -51,6 +55,15 @@ done
 if [ ${#FILES[@]} -eq 0 ]; then
   echo "No se especificaron archivos. Usa --help para ver cómo usar el script."
   exit 1
+fi
+
+# Mostrar defaults si no se pasaron opciones
+if [ "$USING_DEFAULTS" = true ]; then
+  echo "Usando parámetros por defecto:"
+  echo "  --crf   $CRF"
+  echo "  --scale original (sin cambio)"
+  echo "  --speed $SPEED"
+  echo
 fi
 
 # Verificar si ffmpeg está instalado
