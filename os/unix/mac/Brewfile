@@ -7,7 +7,6 @@ brew "eza"
 brew "fzf"
 brew "gh"
 brew "gradle"
-brew "python"
 brew "maven"
 brew "neovim"
 brew "node"
@@ -15,6 +14,8 @@ brew "httpie"
 brew "tree"
 brew "starship"
 brew "rust"
+brew "uv"
+brew "mole"
 
 cask "orbstack"
 cask "google-chrome"
@@ -22,7 +23,8 @@ cask "jetbrains-toolbox"
 cask "monitorcontrol"
 cask "warp"
 cask "claude-code"
+cask "opencode"
+cask "dataflare"
 
 mas "Dark Reader for Safari", id: 1438243180
-mas "Grammarly for Safari", id: 1462114288
 mas "LanguageTool", id: 1534275760

@@ -235,51 +235,22 @@ install_npm_global_packages() {
   done
 }
 
-# Instalar paquetes pip3
-install_pip_packages() {
+install_uv_tools() {
   local packages=("$@")
 
-  if ! command_exists pip3; then
-    log_warn "pip3 no está instalado. No se pueden instalar paquetes Python."
+  if ! command_exists uv; then
+    log_warn "uv no está instalado. Saltando instalación de herramientas uv."
     return
   fi
 
   for pkg in "${packages[@]}"; do
-    local pkg_name="${pkg%%==*}"
-    if pip3 show "$pkg_name" &>/dev/null; then
-      log_info "$pkg ya está instalado con pip3."
+    local pkg_name="${pkg%%\[*}"
+    if uv tool list | grep -q "^$pkg_name"; then
+      log_info "$pkg ya está instalado con uv tool."
     else
-      log_info "Instalando $pkg con pip3..."
-      if ! pip3 install "$pkg"; then
-        log_warn "No se pudo instalar $pkg con pip3."
-      fi
-    fi
-  done
-}
-
-install_pipx_packages() {
-  local packages=("$@")
-
-  if ! command_exists pipx; then
-    log_info "pipx no está instalado. Instalándolo..."
-
-    if command_exists pip3; then
-      pip3 install --user pipx || log_error "No se pudo instalar pipx"
-      pipx ensurepath
-      log_info "pipx instalado correctamente."
-    else
-      log_warn "pip3 no está disponible. No se puede instalar pipx."
-      return
-    fi
-  fi
-
-  for pkg in "${packages[@]}"; do
-    if pipx list | grep -q "$pkg"; then
-      log_info "$pkg ya está instalado con pipx."
-    else
-      log_info "Instalando $pkg con pipx..."
-      if ! pipx install "$pkg"; then
-        log_warn "No se pudo instalar $pkg con pipx."
+      log_info "Instalando $pkg con uv tool..."
+      if ! uv tool install "$pkg"; then
+        log_warn "No se pudo instalar $pkg con uv tool."
       fi
     fi
   done

@@ -97,3 +97,12 @@ If you want to deactivate the imports toggle, go to configuration, code folding
 ## MarkItDown
 
 markitdown path-to-file.pdf > document.md
+
+## Posting
+
+API client de terminal (alternativa a Postman/httpie).
+
+```bash
+uv tool install --python 3.12 posting
+posting
+```

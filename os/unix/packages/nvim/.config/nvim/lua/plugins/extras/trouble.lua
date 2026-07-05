@@ -1,5 +1,4 @@
 return {
-  -- 🔇 desactivar texto inline de diagnósticos
   {
     "neovim/nvim-lspconfig",
     opts = {
