@@ -8,6 +8,25 @@ target locations like your home directory.
 
 ------------------------------------------------------------------------
 
+## Basic Concepts
+
+- **Stow directory**: Where your packages (folders) live
+- **Target directory**: Where symlinks will be created (usually your
+    home directory `~`)
+- **Package**: A folder containing files to be linked
+
+------------------------------------------------------------------------
+
+## Example Structure
+
+    dotfiles/
+    ├── bash/
+    │   └── .bashrc
+    ├── git/
+    │   └── .gitconfig
+
+------------------------------------------------------------------------
+
 ## Usage
 
 ### 1. Navigate to your stow directory

@@ -135,22 +135,22 @@ defaults write com.apple.dock autohide -bool true
 
 # TODOs and Customizations
 defaults write -g NSUserKeyEquivalents '{
-  Bottom = "@^\\U2193";
-  "Bottom & Top" = "@^k";
-  "Bottom Left" = "@^}";
-  "Bottom Right" = "@^{";
+  Bottom = "@^↓";
+  "Bottom & Top" = "@^$↓";
+  "Bottom Left" = "@^j";
+  "Bottom Right" = "@^k";
   Center = "@^c";
   Fill = "@^f";
-  Left = "@^\\U2190";
-  "Left & Right" = "@^p";
+  Left = "@^←";
+  "Left & Right" = "@^$←";
   "Paste and Match Style" = "@$v";
-  Quarters = "@^l";
-  Right = "@^\\U2192";
-  "Right & Left" = "@^o";
-  Top = "@^\\U2191";
-  "Top & Bottom" = "@^\\U00f1";
-  "Top Right" = "@^\\U00b4";
-  "Top left" = "@^+";
+  Quarters = "@^$q";
+  Right = "@^→";
+  "Right & Left" = "@^$→";
+  Top = "@^↑";
+  "Top & Bottom" = "@^$↑";
+  "Top Left" = "@^u";
+  "Top Right" = "@^i";
 }'
 
 # Apply Changes                                                               #

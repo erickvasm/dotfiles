@@ -1,6 +1,7 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.lang.astro",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.java",
@@ -19,6 +20,7 @@
     "plugins.extras.edgy",
     "plugins.extras.lualine",
     "plugins.extras.multicursor",
+    "plugins.extras.python",
     "plugins.extras.trouble",
     "plugins.extras.claude"
   ],

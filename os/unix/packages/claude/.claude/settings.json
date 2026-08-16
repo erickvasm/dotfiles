@@ -38,7 +38,8 @@
     "caveman@caveman": true,
     "lua-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "warp@claude-code-warp": true
+    "warp@claude-code-warp": true,
+    "engram@engram": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -47,16 +48,16 @@
         "repo": "JuliusBrussee/caveman"
       }
     },
-    "agricidaniel-claude-seo": {
-      "source": {
-        "source": "github",
-        "repo": "AgriciDaniel/claude-seo"
-      }
-    },
     "claude-code-warp": {
       "source": {
         "source": "github",
         "repo": "warpdotdev/claude-code-warp"
+      }
+    },
+    "engram": {
+      "source": {
+        "source": "github",
+        "repo": "Gentleman-Programming/engram"
       }
     }
   },

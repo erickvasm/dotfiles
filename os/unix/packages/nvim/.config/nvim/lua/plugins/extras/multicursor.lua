@@ -1,3 +1,30 @@
+-- MULTICURSOR — edita múltiples posiciones simultáneamente
+--
+-- FLUJO BÁSICO:
+--   1. Posiciona cursor en palabra/línea inicial
+--   2. Agrega cursors (ver atajos abajo)
+--   3. Edita normal — todos los cursors aplican el cambio
+--   4. <Esc> para limpiar cursors cuando termines
+--
+-- ATAJOS PRINCIPALES:
+--   ↑ / ↓             → agrega cursor en línea arriba/abajo
+--   <leader>↑ / ↓     → salta línea sin agregar cursor
+--   <leader>n / N     → agrega cursor en siguiente/anterior match de palabra
+--   <leader>s / S     → salta match sin agregar cursor (útil para excluir ocurrencias)
+--   <C-LeftClick>     → agrega/quita cursor con mouse en posición exacta
+--   <C-LeftDrag>      → arrastra para agregar cursors en rango
+--   <C-q>             → activa/desactiva cursors (sin borrarlos)
+--
+-- CUANDO HAY MÚLTIPLES CURSORS (keymap layer):
+--   ← / →             → cambia cuál es el cursor principal
+--   <leader>x         → elimina el cursor principal
+--   <Esc>             → si desactivados: reactiva | si activos: limpia todos
+--
+-- EJEMPLOS DE USO:
+--   Renombrar variable en bloque: posiciona en var → <leader>n repetido → ciw → escribe nuevo nombre
+--   Editar N líneas iguales:       posiciona → ↓ N veces → edita
+--   Excluir ocurrencia:            <leader>n hasta match que no quieres → <leader>s → <leader>n continúa
+
 return {
   {
     "jake-stewart/multicursor.nvim",
@@ -8,7 +35,7 @@ return {
 
       local set = vim.keymap.set
 
-      -- Add or skip cursor above/below the main cursor.
+      -- ↑/↓ agrega cursor en línea contigua; <leader>+flecha la salta
       set({ "n", "x" }, "<up>", function()
         mc.lineAddCursor(-1)
       end)
@@ -22,7 +49,7 @@ return {
         mc.lineSkipCursor(1)
       end)
 
-      -- Add or skip adding a new cursor by matching word/selection
+      -- <leader>n/N agrega cursor en siguiente/anterior match; s/S lo salta
       set({ "n", "x" }, "<leader>n", function()
         mc.matchAddCursor(1)
       end)
@@ -36,25 +63,24 @@ return {
         mc.matchSkipCursor(-1)
       end)
 
-      -- Add and remove cursors with control + left click.
+      -- Ctrl+Click agrega/quita cursor; drag selecciona rango de cursors
       set("n", "<c-leftmouse>", mc.handleMouse)
       set("n", "<c-leftdrag>", mc.handleMouseDrag)
       set("n", "<c-leftrelease>", mc.handleMouseRelease)
 
-      -- Disable and enable cursors.
+      -- <C-q> pausa todos los cursors sin borrarlos (útil para navegar)
       set({ "n", "x" }, "<c-q>", mc.toggleCursor)
 
-      -- Mappings defined in a keymap layer only apply when there are
-      -- multiple cursors. This lets you have overlapping mappings.
+      -- Layer activo solo cuando hay múltiples cursors
       mc.addKeymapLayer(function(layerSet)
-        -- Select a different cursor as the main one.
+        -- ←/→ cambia el cursor principal (el que muestra la posición actual)
         layerSet({ "n", "x" }, "<left>", mc.prevCursor)
         layerSet({ "n", "x" }, "<right>", mc.nextCursor)
 
-        -- Delete the main cursor.
+        -- <leader>x elimina solo el cursor principal
         layerSet({ "n", "x" }, "<leader>x", mc.deleteCursor)
 
-        -- Enable and clear cursors using escape.
+        -- <Esc>: reactiva si pausados, limpia todos si activos
         layerSet("n", "<esc>", function()
           if not mc.cursorsEnabled() then
             mc.enableCursors()
@@ -64,7 +90,6 @@ return {
         end)
       end)
 
-      -- Customize how cursors look.
       local hl = vim.api.nvim_set_hl
       hl(0, "MultiCursorCursor", { reverse = true })
       hl(0, "MultiCursorVisual", { link = "Visual" })

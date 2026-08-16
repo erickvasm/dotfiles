@@ -7,6 +7,12 @@ return {
       vim.opt.splitkeep = "screen"
     end,
     opts = {
+      keys = {
+        ["="] = function(win) win:resize("width", 5) end,
+        ["-"] = function(win) win:resize("width", -5) end,
+        ["+"] = function(win) win:resize("height", 3) end,
+        ["_"] = function(win) win:resize("height", -3) end,
+      },
       bottom = {
         -- toggleterm / lazyterm at the bottom with a height of 40% of the screen
         {
