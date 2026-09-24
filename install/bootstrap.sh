@@ -12,6 +12,19 @@ main() {
   print_logo
   identify_os
 
+  # Se pide la contraseña de administrador aquí, de forma visible, para que
+  # no quede oculta detrás del spinner más adelante (p. ej. durante la
+  # instalación de Homebrew o Stow) y el usuario no piense que el script
+  # se colgó.
+  log_info "Se solicitará tu contraseña de administrador (sudo) para continuar."
+  sudo -v
+  # Mantiene viva la sesión de sudo mientras dura el bootstrap.
+  while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" 2>/dev/null || exit
+  done 2>/dev/null &
+
   check_or_create_dir "$DEFAULT_DOTFILES_DIR" >>"$LOG_FILE" 2>&1
 
   for script in "$DEFAULT_DOTFILES_DIR"/install/*.sh; do
