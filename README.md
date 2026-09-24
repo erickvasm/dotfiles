@@ -10,6 +10,23 @@
 
 <img alt="img" src="https://i.ibb.co/whdSrMHL/Screenshot-2025-09-28-at-8-54-28-AM.png">
 
+## Quick install (one command)
+
+Installs git if needed, clones this repo into `~/.dotfiles` (or updates it
+if it's already there), and runs the bootstrap script — all in one go:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/erickvasm/dotfiles/main/install.sh)"
+```
+
+> ⚠️ Use the `/bin/bash -c "$(curl ...)"` form above, **not** `curl ... | bash`.
+> That form keeps your terminal attached as an interactive input, so you'll
+> actually see (and can answer) password/sudo prompts during the install
+> instead of them silently hanging behind the pipe.
+
+Then follow the on-screen instructions. When it's done, check
+`~/.dotfiles/install.log` for full details and restart your computer.
+
 ## Restore your Dotfiles manually 
 
 1. Install git

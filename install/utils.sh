@@ -12,6 +12,7 @@ DEFAULT_FONTS_DIR="$HOME/.fonts"
 OS=""
 
 # Manejo de logs
+mkdir -p "$DEFAULT_DOTFILES_DIR"
 LOG_FILE="$DEFAULT_DOTFILES_DIR/install.log"
 : >"$LOG_FILE"
 exec > >(tee -a "$LOG_FILE") 2>&1
@@ -50,7 +51,19 @@ ejecutable() {
 check_brew() {
   if ! command_exists brew; then
     log_info "Homebrew no está instalado. Instalando..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # NONINTERACTIVE evita el prompt "Press RETURN to continue", que
+    # queda oculto detrás del spinner y hace parecer que el script se colgó.
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Cargar brew en el PATH de esta misma sesión de shell, sin esperar a
+    # que el usuario abra una terminal nueva.
+    if [[ -x /opt/homebrew/bin/brew ]]; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [[ -x /usr/local/bin/brew ]]; then
+      eval "$(/usr/local/bin/brew shellenv)"
+    fi
+
+    command_exists brew || log_error "No se pudo instalar Homebrew."
     log_info "Homebrew instalado correctamente."
   else
     log_info "Homebrew ya está instalado."
@@ -109,12 +122,15 @@ with_spinner() {
   # Proceso lector del pipe
   tee "$tmpfile" <"$pipefile" |
     while IFS= read -r line; do
-      echo "$line" >>"$LOG_FILE"
-
-      # Si es línea importante, limpia el spinner antes de imprimirla
+      # Si es línea importante, limpia el spinner y la imprime. Como el
+      # script entero ya redirige su stdout a "tee -a $LOG_FILE" (ver
+      # utils.sh), imprimirla aquí también la deja en el log: no hace
+      # falta (ni conviene) escribirla dos veces.
       if [[ "$line" == *"[WARN]"* || "$line" == *"[ERROR]"* ]]; then
         printf "\r\033[K" # Limpia la línea del spinner
         echo "$line"
+      else
+        echo "$line" >>"$LOG_FILE"
       fi
     done &
 
@@ -269,6 +285,13 @@ install_brewfile() {
 
   log_info "Instalando paquetes desde Brewfile: $brewfile_path"
 
+  # Tapear explícitamente los taps de terceros antes de 'brew bundle', para
+  # que Homebrew no rechace sus fórmulas por venir de un tap no confiado.
+  local tap
+  while IFS= read -r tap; do
+    brew tap "$tap" >>"$LOG_FILE" 2>&1 || log_warn "No se pudo agregar el tap '$tap'."
+  done < <(grep -E '^\s*tap\s+"' "$brewfile_path" | sed -E 's/^\s*tap\s+"([^"]+)".*/\1/')
+
   # Redirigimos salida al log
   if brew bundle --file="$brewfile_path" >>"$LOG_FILE" 2>&1; then
     log_info "Todos los paquetes del Brewfile fueron instalados correctamente."
@@ -332,18 +355,36 @@ install_stow_packages() {
 # Hacer zsh el shell por defecto
 make_zsh_default() {
   if command_exists zsh; then
-    log_info "Zsh está instalado. Estableciendo como shell por defecto..."
-    chsh -s "$(which zsh)" || log_warn "No se pudo cambiar el shell por defecto."
+    local zsh_path
+    zsh_path="$(which zsh)"
 
-    log_info "Instalando Zimfw..."
-    #curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh || log_warn "Error instalando zim"
-    if command_exists zimfw; then
-      zimfw install
+    if [[ "$SHELL" == "$zsh_path" ]]; then
+      log_info "Zsh ya es el shell por defecto."
     else
-      log_warn "No se pudo encontrar zimfw"
+      log_info "Zsh está instalado. Estableciendo como shell por defecto..."
+      chsh -s "$zsh_path" || log_warn "No se pudo cambiar el shell por defecto."
     fi
+
+    install_zimfw
   else
     log_error "Zsh no está instalado. No se puede establecer como shell por defecto."
+  fi
+}
+
+# Instalar Zim (gestor de plugins de Zsh) si no está instalado
+install_zimfw() {
+  local zim_home="${ZIM_HOME:-$HOME/.zim}"
+
+  if [[ -f "$zim_home/zimfw.zsh" ]]; then
+    log_info "Zim ya está instalado."
+    return
+  fi
+
+  log_info "Instalando Zim..."
+  if curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh; then
+    log_info "Zim instalado correctamente."
+  else
+    log_warn "No se pudo instalar Zim."
   fi
 }
 
@@ -352,10 +393,20 @@ dotfiles_install_fonts() {
   log_info "Instalando fuentes personalizadas..."
   check_or_create_dir "$DEFAULT_FONTS_DIR"
 
+  local dankmono_dir="$DEFAULT_FONTS_DIR/DankMono"
   if command_exists gh; then
-    gh auth login
-    gh repo clone erickvasm/DankMono "$DEFAULT_FONTS_DIR" || log_warn "No se pudo clonar el repositorio de fuentes."
-    echo "Clonando fuentes DankMono..."
+    if [[ -d "$dankmono_dir/.git" ]]; then
+      log_info "El repositorio de fuentes DankMono ya está clonado."
+    else
+      # Solo pide autenticación si no hay una sesión activa; evita que el
+      # script se quede esperando indefinidamente un login interactivo.
+      if ! gh auth status &>/dev/null; then
+        log_info "Autenticando con GitHub CLI..."
+        gh auth login || log_warn "No se pudo autenticar con GitHub CLI."
+      fi
+      log_info "Clonando fuentes DankMono..."
+      gh repo clone erickvasm/DankMono "$dankmono_dir" || log_warn "No se pudo clonar el repositorio de fuentes."
+    fi
   else
     log_warn "No se pudo encontrar gh"
   fi
