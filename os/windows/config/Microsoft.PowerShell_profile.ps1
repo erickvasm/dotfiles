@@ -9,11 +9,7 @@ function update {
 
 Set-Alias vim nvim
 Set-Alias grep findstr
-Set-Alias cat type
-Set-Alias mv move-item
-Set-Alias rm remove-item -Force
 Set-Alias touch new-item
-Set-Alias pwd Get-Location
 
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {

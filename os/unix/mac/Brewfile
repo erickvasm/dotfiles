@@ -25,10 +25,6 @@ cask "warp"
 cask "claude-code"
 cask "claude"
 cask "opencode"
-cask "dataflare"
 
-mas "Dark Reader for Safari", id: 1438243180
-# Nota: este ADAM ID puede no estar disponible en todas las regiones/cuentas
-# de App Store ("No apps found for ADAM ID"). Si falla, verifica el ID
-# correcto en https://apps.apple.com o confirma sesión iniciada con `mas account`.
-mas "LanguageTool", id: 1534275760
+mas "Pages", id: 361309726
+mas "Numbers", id: 361304891

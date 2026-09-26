@@ -46,6 +46,13 @@ while true; do
 done 2>/dev/null &
 
 ###############################################################################
+# Folders                                                                     #
+###############################################################################
+
+# Crear carpeta Developer en el home
+mkdir -p "$HOME/Developer"
+
+###############################################################################
 # General System Settings                                                     #
 ###############################################################################
 
@@ -59,6 +66,10 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write -g WebAutomaticTextReplacementEnabled -bool false
+
+# Disable press-and-hold accent popup; long-press repeats the key instead
+# (accents still work via dead keys: Option+e/n/u then the letter)
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 ###############################################################################
 # Input Devices: Trackpad, Keyboard, and Mouse                                #
@@ -75,7 +86,11 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Set language and measurement units
 defaults write NSGlobalDomain AppleLanguages -array "en-US" "es-US" "en"
-defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 89; "KeyboardLayout Name" = "Latin American"; }'
+
+# Keyboard input sources: English (US) default, Spanish (Latin American) second
+defaults write com.apple.HIToolbox AppleEnabledInputSources -array \
+  '{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 252; "KeyboardLayout Name" = ABC; }' \
+  '{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 89; "KeyboardLayout Name" = "Latin American"; }'
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
@@ -101,6 +116,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Enable "Use Stacks" on the desktop
+defaults write com.apple.finder FXUseStacks -bool true
 
 # Search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
@@ -152,6 +170,18 @@ defaults write -g NSUserKeyEquivalents '{
   "Top Left" = "@^u";
   "Top Right" = "@^i";
 }'
+
+###############################################################################
+# Login Items                                                                 #
+###############################################################################
+
+# Remove apps from "Open at Login"
+osascript -e 'tell application "System Events" to delete login item "Warp"' 2>/dev/null
+
+# NOTE: JetBrains Toolbox autostart runs via macOS Background Task Management
+# (Ventura+), not a classic login item — no public API/CLI to toggle it.
+# Disable manually: System Settings > General > Login Items & Extensions >
+# Background App Activity > "JetBrains s.r.o."
 
 # Apply Changes                                                               #
 ###############################################################################

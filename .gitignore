@@ -5,3 +5,18 @@
 .idea
 /**/**/export_logs/
 install.log
+
+# Claude Code runtime state (keep settings.json tracked)
+os/unix/packages/claude/.claude/.caveman-active
+os/unix/packages/claude/.claude/.caveman-mode-log.jsonl
+os/unix/packages/claude/.claude/.caveman-sessions/
+os/unix/packages/claude/.claude/backups/
+os/unix/packages/claude/.claude/cache/
+os/unix/packages/claude/.claude/file-history/
+os/unix/packages/claude/.claude/history.jsonl
+os/unix/packages/claude/.claude/plugins/
+os/unix/packages/claude/.claude/projects/
+os/unix/packages/claude/.claude/session-env/
+os/unix/packages/claude/.claude/sessions/
+os/unix/packages/claude/.claude/shell-snapshots/
+os/unix/packages/claude/.claude/skills/

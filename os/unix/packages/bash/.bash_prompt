@@ -3,11 +3,6 @@
 # -----------------
 # Bash Prompt Configuration
 # -----------------
-#!/usr/bin/env bash
-
-# -----------------
-# Bash Prompt Configuration
-# -----------------
 
 # Disable default prompt
 PS1=""
@@ -25,110 +20,48 @@ reset=$(tput sgr0)
 
 # Display the current branch with an icon
 prompt_git_info() {
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        local repoUrl="$(git config --get remote.origin.url)"
-        local icon=''
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local repoUrl="$(git config --get remote.origin.url)"
+    local icon=''
 
-        # Special icon for Chromium repository
-        [[ "$repoUrl" =~ chromium/src.git ]] && icon='*'
+    # Special icon for Chromium repository
+    [[ "$repoUrl" =~ chromium/src.git ]] && icon='*'
 
-        local branchName=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || \
-            git describe --all --exact-match HEAD 2>/dev/null || \
-            git rev-parse --short HEAD 2>/dev/null || \
-            echo '(unknown)')
+    local branchName=$(git symbolic-ref --quiet --short HEAD 2>/dev/null ||
+      git describe --all --exact-match HEAD 2>/dev/null ||
+      git rev-parse --short HEAD 2>/dev/null ||
+      echo '(unknown)')
 
-        echo -n "${violet}${icon} ${branchName}${reset} "
-    fi
+    echo -n "${violet}${icon} ${branchName}${reset} "
+  fi
 }
 
 # Display Git changes in red
 prompt_git_changes() {
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        local changes=""
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local changes=""
 
-        [[ -n "$(git diff --cached)" ]] && changes+='+'
-        [[ -n "$(git diff-files)" ]] && changes+='!'
-        [[ -n "$(git ls-files --others --exclude-standard)" ]] && changes+='?'
-        git rev-parse --verify refs/stash &>/dev/null && changes+='$'
+    [[ -n "$(git diff --cached)" ]] && changes+='+'
+    [[ -n "$(git diff-files)" ]] && changes+='!'
+    [[ -n "$(git ls-files --others --exclude-standard)" ]] && changes+='?'
+    git rev-parse --verify refs/stash &>/dev/null && changes+='$'
 
-        [[ -n "$changes" ]] && echo -n "${red}[${changes}]${reset}"
-    fi
+    [[ -n "$changes" ]] && echo -n "${red}[${changes}]${reset}"
+  fi
 }
 
 # Display a different prompt color if the last command failed
 prompt_error_color() {
-    [[ $? -ne 0 ]] && echo -n "${red}" || echo -n "${violet}"
+  [[ $? -ne 0 ]] && echo -n "${red}" || echo -n "${violet}"
 }
 
 # -----------------
 # Prompt Structure
 # -----------------
-PS1+="\[${bold}\]\n"                # Newline for better readability
-PS1+="\$(prompt_error_color)⚡${reset} "  # Prompt symbol changes color on error
-PS1+="\[${green}\]\W\[${reset}\] "  # Current directory
+PS1+="\[${bold}\]\n"                               # Newline for better readability
+PS1+="\$(prompt_error_color)⚡${reset} "            # Prompt symbol changes color on error
+PS1+="\[${green}\]\W\[${reset}\] "                 # Current directory
 PS1+="\$(prompt_git_info)\$(prompt_git_changes)\n" # Git branch and changes
-PS1+="↳  "                         # Continuation symbol
-
-export PS1
-
-# Disable default prompt
-PS1=""
-
-# Colors
-bold=$(tput bold)
-red=$(tput setaf 1)
-green=$(tput setaf 85)
-violet=$(tput setaf 92)
-reset=$(tput sgr0)
-
-# -----------------
-# Helper Functions
-# -----------------
-
-# Display the current branch with an icon
-prompt_git_info() {
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        local repoUrl="$(git config --get remote.origin.url)"
-        local icon=''
-
-        # Special icon for Chromium repository
-        [[ "$repoUrl" =~ chromium/src.git ]] && icon='*'
-
-        local branchName=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || \
-            git describe --all --exact-match HEAD 2>/dev/null || \
-            git rev-parse --short HEAD 2>/dev/null || \
-            echo '(unknown)')
-
-        echo -n "${violet}${icon} ${branchName}${reset} "
-    fi
-}
-
-# Display Git changes in red
-prompt_git_changes() {
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        local changes=""
-
-        [[ -n "$(git diff --cached)" ]] && changes+='+'
-        [[ -n "$(git diff-files)" ]] && changes+='!'
-        [[ -n "$(git ls-files --others --exclude-standard)" ]] && changes+='?'
-        git rev-parse --verify refs/stash &>/dev/null && changes+='$'
-
-        [[ -n "$changes" ]] && echo -n "${red}[${changes}]${reset}"
-    fi
-}
-
-# Display a different prompt color if the last command failed
-prompt_error_color() {
-    [[ $? -ne 0 ]] && echo -n "${red}" || echo -n "${violet}"
-}
-
-# -----------------
-# Prompt Structure
-# -----------------
-PS1+="\[${bold}\]\n"                # Newline for better readability
-PS1+="\$(prompt_error_color)⚡${reset} "  # Prompt symbol changes color on error
-PS1+="\[${green}\]\W\[${reset}\] "  # Current directory
-PS1+="\$(prompt_git_info)\$(prompt_git_changes)\n" # Git branch and changes
-PS1+="↳  "                         # Continuation symbol
+PS1+="↳  "                                         # Continuation symbol
 
 export PS1
