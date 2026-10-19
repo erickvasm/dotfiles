@@ -21,7 +21,7 @@
       "Read(~/.ssh/**)"
     ]
   },
-  "model": "sonnet",
+  "model": "opusplan",
   "hooks": {
     "PreToolUse": [
       {

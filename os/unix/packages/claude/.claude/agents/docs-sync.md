@@ -2,7 +2,7 @@
 name: docs-sync
 description: Updates README, API documentation and changelog to reflect code changes already approved by code-reviewer-strict. Use it only after the APPROVED verdict, never before, so you don't document something that can still change.
 tools: Read, Write, Edit, Grep, Glob, Bash
-model: sonnet
+model: haiku
 maxTurns: 30
 ---
 

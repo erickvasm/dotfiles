@@ -1,3 +1,6 @@
+---
+model: sonnet
+---
 Review all pending git changes, apply quality fixes, commit with a compressed message, then ask for confirmation before pushing.
 
 Use this for small and medium changes. Non-trivial features go through the dev + review agent chain (see CLAUDE.md), which already covers code and security review: do not repeat steps 2–3 on a change that `code-reviewer-strict` approved for the current HEAD.

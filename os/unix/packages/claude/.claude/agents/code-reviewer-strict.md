@@ -2,7 +2,7 @@
 name: code-reviewer-strict
 description: Reviews the code from task-developer and the tests from test-writer. Acts as code reviewer and security auditor in one role (bugs, vulnerabilities, Clean Code/SOLID violations and deviations from best practices). Does not write or fix code; audits with evidence and returns an actionable report with a verdict. Use it after test-writer completes coverage, before considering any change done.
 tools: Read, Grep, Glob, Bash, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__plugin_engram_engram__mem_save, mcp__plugin_engram_engram__mem_search
-model: opus
+model: sonnet
 maxTurns: 40
 ---
 
