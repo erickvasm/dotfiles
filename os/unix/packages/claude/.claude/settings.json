@@ -5,6 +5,22 @@
     "DISABLE_COST_WARNINGS": "1"
   },
   "includeCoAuthoredBy": false,
+  "permissions": {
+    "deny": [
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Read(**/.env)",
+      "Read(**/.env.*.local)",
+      "Read(**/.env.local)",
+      "Read(**/.env.production)",
+      "Read(**/credentials.json)",
+      "Read(**/id_ed25519)",
+      "Read(**/id_rsa)",
+      "Read(**/service-account*.json)",
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)"
+    ]
+  },
   "model": "sonnet",
   "hooks": {
     "PreToolUse": [
@@ -14,6 +30,10 @@
           {
             "type": "command",
             "command": "bash ~/.claude/hooks/filter-test-output.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/guard-push-pr.sh"
           }
         ]
       }
@@ -38,8 +58,10 @@
     "caveman@caveman": true,
     "lua-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "warp@claude-code-warp": true,
-    "engram@engram": true
+    "engram@engram": true,
+    "ponytail@ponytail": true,
+    "cloudflare@cloudflare": false,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -48,22 +70,39 @@
         "repo": "JuliusBrussee/caveman"
       }
     },
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    },
     "engram": {
       "source": {
         "source": "github",
         "repo": "Gentleman-Programming/engram"
       }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
     }
   },
   "effortLevel": "high",
   "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "skipDangerousModePermissionPrompt": true,
   "theme": "light-ansi",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true
 }

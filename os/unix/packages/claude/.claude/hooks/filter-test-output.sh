@@ -1,14 +1,29 @@
 #!/bin/bash
-# PreToolUse hook: rewrites test commands to filter output before it enters context.
-# Converts potentially 10,000+ lines of test output to the ~50 that matter.
-#
-# Intercepts: npm test, pytest, go test, yarn test, pnpm test, cargo test, jest, vitest
+# PreToolUse (Bash): if the command is EXACTLY a simple test command, wrap it in
+# test-runner.sh so only what matters (and the real exit code) reaches the context.
+# Any other command (chained, piped, redirected, etc.) passes through untouched
+# and is not auto-approved.
 
 input=$(cat)
-cmd=$(echo "$input" | jq -r '.tool_input.command // empty')
+cmd=$(printf '%s' "$input" | jq -r '.tool_input.command // empty')
+[ -z "$cmd" ] && exit 0
 
-if [[ "$cmd" =~ ^(npm[[:space:]]test|yarn[[:space:]]test|pnpm[[:space:]]test|pytest|go[[:space:]]test|cargo[[:space:]]test|jest|vitest) ]]; then
-  filtered="$cmd 2>&1 | grep -A 5 -E 'FAIL|ERROR|FAILED|Error|assert|panic' | head -100"
-  printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"allow","updatedInput":{"command":"%s"}}}' \
-    "$(echo "$filtered" | sed 's/"/\\"/g')"
-fi
+# Never touch multi-line commands.
+case "$cmd" in
+  *$'\n'*|*$'\r'*) exit 0 ;;
+esac
+
+# Pure test commands only: space-separated tokens, no ; & | < > ` $ ( ) { } \ '
+safe_re='^(pnpm test|pnpm vitest run|pnpm turbo run test|npm test|npm run test|yarn test|npx vitest run|npx jest|vitest run|jest|pytest|go test|cargo test)( +[A-Za-z0-9_./:=@,"-]+)*$'
+[[ "$cmd" =~ $safe_re ]] || exit 0
+
+runner="$HOME/.claude/hooks/test-runner.sh"
+[ -x "$runner" ] || exit 0
+
+printf '%s' "$input" | jq --arg c "bash \"$runner\" $cmd" '{
+  hookSpecificOutput: {
+    hookEventName: "PreToolUse",
+    permissionDecision: "allow",
+    updatedInput: (.tool_input | .command = $c)
+  }
+}'

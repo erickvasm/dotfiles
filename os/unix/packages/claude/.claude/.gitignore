@@ -1,0 +1,26 @@
+# Allowlist: ignore everything under ~/.claude except hand-written Claude Code config.
+# Runtime state (history, caches, sessions, plugins, backups, ...) never gets tracked,
+# including any new folder Claude Code creates in the future.
+*
+
+!.gitignore
+!CLAUDE.md
+!settings.json
+!.claudeignore
+!keybindings.json
+
+!agents/
+!agents/**
+!commands/
+!commands/**
+!hooks/
+!hooks/**
+!rules/
+!rules/**
+
+# Own skills are tracked; skills synced from the account are not.
+!skills/
+!skills/**
+skills/synced/
+
+.DS_Store
